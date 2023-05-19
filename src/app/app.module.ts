@@ -17,12 +17,14 @@ import { MainComponent } from './components/main/main.component';
 import { AuthService } from './auth/auth-service';
 import { AuthGuard } from './auth/auth-guard';
 import { AuthInterceptor } from './auth/auth-interceptor';
+import { NewComponentComponent } from './components/new-component/new-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    LoginComponent
+    LoginComponent,
+    NewComponentComponent
   ],
   imports: [
     BrowserModule,
