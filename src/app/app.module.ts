@@ -17,12 +17,18 @@ import { MainComponent } from './components/main/main.component';
 import { AuthService } from './auth/auth-service';
 import { AuthGuard } from './auth/auth-guard';
 import { AuthInterceptor } from './auth/auth-interceptor';
+import { ProjectMembersComponent } from './components/project-view/project-members/project-members.component';
+import { ProjectViewComponent } from './components/project-view/project-view.component';
+import { SpringListComponent } from './components/project-view/spring-list/spring-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    LoginComponent
+    LoginComponent,
+    ProjectMembersComponent,
+    ProjectViewComponent,
+    SpringListComponent
   ],
   imports: [
     BrowserModule,
