@@ -1,0 +1,23 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: 3px solid;
+    border-color: aquamarine;
+    border-radius: 10px;
+    transition: border-color 0.3s;
+    height: 44px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  li:hover {
+    background-color: #e6e6e6;
+    border-color: rgb(0, 255, 170);
+  }
