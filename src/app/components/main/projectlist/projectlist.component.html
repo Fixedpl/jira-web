@@ -1,0 +1,11 @@
+<div class="list-box">
+    <div class="list-box-header">
+      {{ title }}
+    </div>
+    <ul class="list-box-items">
+      <li *ngFor="let item of items" (click)="selectItem(item)" [class.selected]="selectedItem === item">
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+

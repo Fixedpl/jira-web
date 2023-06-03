@@ -1,0 +1,16 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" opened="true">
+      <!-- Zawartość SideNav -->
+      <ul>
+        <li><a routerLink="/">Strona główna</a></li>
+        <li><a routerLink="/">Backlog</a></li>
+        <li><a routerLink="/about">Aktywne sprinty</a></li>
+        <li><a routerLink="/contact">{{this.nameOfProject}}</a></li>
+
+      </ul>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-projectlist [title]="'Kolor'" [items]="['Czerwony', 'Niebieski', 'Zielony', 'Żółty']"></app-projectlist>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

@@ -1,0 +1,39 @@
+mat-sidenav-container {
+    height: 100vh;
+    
+  }
+  
+  mat-sidenav {
+    width: 250px;
+    background-color: #24252a;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  mat-sidenav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  mat-sidenav li {
+    margin-bottom: 10px;
+  }
+  
+  mat-sidenav a {
+    text-decoration: none;
+    color:white;
+  }
+  
+  mat-sidenav a:hover {
+    color: #333;
+  }
+  
+  mat-sidenav-content {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  mat-icon {
+    vertical-align: middle;
+  }
+  
