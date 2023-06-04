@@ -1,9 +1,23 @@
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" class="form-container">
     <mat-form-field>
       <input matInput placeholder="Nazwa projektu" [(ngModel)]="projectName" name="projectName">
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field class="description">
       <textarea matInput placeholder="Opis projektu" [(ngModel)]="projectDescription" name="projectDescription"></textarea>
     </mat-form-field>
+  
+    <mat-form-field class="start-date">
+      <mat-label>Data rozpoczęcia</mat-label>  
+      <input matInput [matDatepicker]="startDatePicker" placeholder="Data rozpoczęcia" [(ngModel)]="startDate" name="startDate">
+      <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="end-date">
+        <mat-label>Data zakończenia</mat-label>  
+      <input matInput [matDatepicker]="endDatePicker" placeholder="Data zakończenia" [(ngModel)]="endDate" name="endDate">
+      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
+  
     <button mat-raised-button color="primary" type="submit">Utwórz projekt</button>
   </form>

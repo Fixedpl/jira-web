@@ -8,6 +8,13 @@ import { Component } from '@angular/core';
 export class ProjectCreationViewComponent {
   projectName: string;
   projectDescription: string;
+  startDate: Date;
+  endDate: Date;
+
+  constructor() {
+    this.startDate = new Date();
+    this.endDate = new Date();
+  }
 
   onSubmit() {
     // Tutaj możesz wykonać odpowiednie działania, np. utworzyć nowy projekt na podstawie wprowadzonych danych.

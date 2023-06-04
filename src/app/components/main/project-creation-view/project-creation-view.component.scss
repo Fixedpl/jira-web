@@ -1,0 +1,30 @@
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+  
+    mat-form-field {
+      margin-bottom: 10px;
+      width: 600px;
+      align-self: center;
+    }
+    .description {
+        height: 400px;
+    }    
+    mat-form-field textarea{
+        height: 380px;
+    }
+    button {
+      margin-top: 10px;
+      width: 150px;
+      align-self: center;
+    }
+    .start-date{
+        width: 250px;
+        
+    }
+    .end-date{
+        width: 250px;
+    }
+  }
+  

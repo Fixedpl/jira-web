@@ -24,6 +24,11 @@ import { SidenavComponent } from './components/main/sidenav/sidenav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { ProjectlistComponent } from './components/main/projectlist/projectlist.component';
 import { ProjectCreationViewComponent } from './components/main/project-creation-view/project-creation-view.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
 
 @NgModule({
   declarations: [
@@ -49,7 +54,10 @@ import { ProjectCreationViewComponent } from './components/main/project-creation
     MatIconModule,
     FormsModule,
     MatSnackBarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule
   ],
   providers: [AuthService , AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent], schemas: [CUSTOM_ELEMENTS_SCHEMA]

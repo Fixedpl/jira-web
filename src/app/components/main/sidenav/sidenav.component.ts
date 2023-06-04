@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/auth/auth-service';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent implements OnInit {
+
   @ViewChild('sidenav',{static: true}) sidenav: MatSidenav;
   toggleSidenav(): void {
     this.sidenav.toggle();
@@ -36,4 +37,7 @@ export class SidenavComponent implements OnInit {
       );
       
   }
+  performAction() {
+        this.current = 'default';
+    }
 }
