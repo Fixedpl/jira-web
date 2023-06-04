@@ -34,6 +34,7 @@ export class LoginComponent {
   }
 
   login() {
+    this.authService.logout();
     this.authService.login(this.email, this.password)
       .subscribe(res => {
         this.authService.setSession(res.token);
