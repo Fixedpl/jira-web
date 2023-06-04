@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProjectCreationViewComponent } from './project-creation-view/project-creation-view.component';
 
 
 @Component({
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent {
-
+  current: string = 'default';
 }

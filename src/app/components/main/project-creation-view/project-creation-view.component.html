@@ -1,0 +1,9 @@
+<form (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Nazwa projektu" [(ngModel)]="projectName" name="projectName">
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Opis projektu" [(ngModel)]="projectDescription" name="projectDescription"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Utwórz projekt</button>
+  </form>

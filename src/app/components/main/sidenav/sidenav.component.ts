@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Route, Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth-service';
 
 @Component({
   selector: 'app-sidenav',
@@ -9,14 +11,14 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class SidenavComponent implements OnInit {
   @ViewChild('sidenav',{static: true}) sidenav: MatSidenav;
-  
+  @Input() current: string;
   toggleSidenav(): void {
     this.sidenav.toggle();
   }
-
+  currentComponent: string = "default";
   nameOfProject: string;
 
-  constructor(private http: HttpClient){
+  constructor(private authService: AuthService, private router: Router, private http: HttpClient){
      
   }
   ngOnInit(): void {
@@ -34,7 +36,9 @@ export class SidenavComponent implements OnInit {
       }
       );
       
-    
+  }
+  goToCP(): void {
+      this.currentComponent = 'project-creation';
   }
 
 }

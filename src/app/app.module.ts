@@ -23,6 +23,7 @@ import { SpringListComponent } from './components/project-view/spring-list/sprin
 import { SidenavComponent } from './components/main/sidenav/sidenav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { ProjectlistComponent } from './components/main/projectlist/projectlist.component';
+import { ProjectCreationViewComponent } from './components/main/project-creation-view/project-creation-view.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ProjectlistComponent } from './components/main/projectlist/projectlist.
     ProjectViewComponent,
     SpringListComponent,
     SidenavComponent,
-    ProjectlistComponent
+    ProjectlistComponent,
+    ProjectCreationViewComponent
   ],
   imports: [
     BrowserModule,

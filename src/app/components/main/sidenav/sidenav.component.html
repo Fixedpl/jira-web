@@ -10,7 +10,13 @@
       </ul>
     </mat-sidenav>
     <mat-sidenav-content>
+      <div *ngIf="current == 'default'"  > 
         <app-projectlist [title]="'Kolor'" [items]="['Czerwony', 'Niebieski', 'Zielony', 'Żółty']"></app-projectlist>
+        <button mat-fab extended (click)="(current = 'project-creation')"><b><mat-icon>add</mat-icon></b></button>
+      </div>  
+      <div *ngIf="current == 'project-creation'"  > 
+        <app-project-creation-view/>
+      </div>  
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>

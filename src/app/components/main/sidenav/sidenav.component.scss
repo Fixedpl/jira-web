@@ -36,4 +36,17 @@ mat-sidenav-container {
   mat-icon {
     vertical-align: middle;
   }
+  mat-sidenav-container button{
+      background-color: #333;
+      display: block;
+      margin:  auto;
+      top: 30px;
+  }
+  mat-sidenav-container b{
+    color: white;
+    --font-size: 30px;
+    --justify-content: center;
+    
+  }
+
   

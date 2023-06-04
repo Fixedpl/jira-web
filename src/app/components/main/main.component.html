@@ -4,10 +4,10 @@
         <ul class="nav__links">
             <li><a href="#">Projekty</a></li>
             <li><a href="#">Tablica</a></li>
-            <li><a href="#">Utwórz projekt</a></li>
+            <li><a routerLink="/createProject" href="#">Utwórz projekt</a></li>
         </ul>
     </nav>
-    <a class="cta" href="#">Contact</a>
+    <a class="cta" href="#">Kontakt</a>
     <p class="menu cta">Menu</p>
 </header>
 <div class="overlay">
@@ -15,9 +15,9 @@
     <div class="overlay__content">
         <a href="#">Projekty</a>
         <a href="#">Tablica</a>
-        <a href="#">Utwórz projekt</a>
+        <a href="#" >Utwórz projekt</a>
     </div>
 </div>
-
-<app-sidenav>
+<app-sidenav [current]="'default'">
+<router-outlet></router-outlet>
 <script type="text/javascript" src="mobile.js"></script>
