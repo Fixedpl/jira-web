@@ -2,9 +2,9 @@
     <a class="logo" >Jira klon</a>
     <nav>
         <ul class="nav__links">
-            <li><a href="#">Projekty</a></li>
-            <li><a href="#">Tablica</a></li>
-            <li><a routerLink="/createProject" href="#">Utwórz projekt</a></li>
+            <li><a routerLink="projects">Projekty</a></li>
+            <li><a routerLink="board">Tablica</a></li>
+            <li><a routerLink="create-project">Utwórz projekt</a></li>
         </ul>
     </nav>
     <a class="cta" href="#">Kontakt</a>
@@ -13,11 +13,9 @@
 <div class="overlay">
     <a class="close">&times;</a>
     <div class="overlay__content">
-        <a href="#">Projekty</a>
-        <a href="#">Tablica</a>
-        <a href="#" >Utwórz projekt</a>
+        <a routerLink="projects">Projekty</a>
+        <a routerLink="board">Tablica</a>
+        <a routerLink="create-project" >Utwórz projekt</a>
     </div>
 </div>
-<app-sidenav [current]="'default'">
-<router-outlet></router-outlet>
-<script type="text/javascript" src="mobile.js"></script>
+<app-sidenav></app-sidenav>
