@@ -10,11 +10,13 @@ import { AuthService } from 'src/app/auth/auth-service';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent implements OnInit {
+
   @ViewChild('sidenav',{static: true}) sidenav: MatSidenav;
   @Input() current: string;
   toggleSidenav(): void {
     this.sidenav.toggle();
   }
+
   currentComponent: string = "default";
   nameOfProject: string;
 
@@ -24,6 +26,7 @@ export class SidenavComponent implements OnInit {
   ngOnInit(): void {
     this.getNavDate();
   }
+
   getNavDate(){
     this.http.get('/api/v1/home/getProjectName',{responseType: "text"}).subscribe(
       (data)=> {
@@ -37,6 +40,9 @@ export class SidenavComponent implements OnInit {
       );
       
   }
+  performAction() {
+        this.current = 'default';
+    }
   goToCP(): void {
       this.currentComponent = 'project-creation';
   }

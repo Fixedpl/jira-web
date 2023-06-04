@@ -2,7 +2,7 @@
     <mat-sidenav #sidenav mode="side" opened="true">
       <!-- Zawartość SideNav -->
       <ul>
-        <li><a routerLink="/">Strona główna</a></li>
+        <li><a (mouseup)="performAction()">Strona główna</a></li>
         <li><a routerLink="/">Backlog</a></li>
         <li><a routerLink="/about">Aktywne sprinty</a></li>
         <li><a routerLink="/contact">{{this.nameOfProject}}</a></li>
@@ -16,6 +16,9 @@
       </div>  
       <div *ngIf="current == 'project-creation'"  > 
         <app-project-creation-view/>
+      </div>  
+      <div *ngIf="current == 'app-project-view'"  > 
+        <app-project-view/>
       </div>  
       <router-outlet></router-outlet>
     </mat-sidenav-content>
