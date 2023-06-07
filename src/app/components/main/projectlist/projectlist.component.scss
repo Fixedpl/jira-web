@@ -26,4 +26,13 @@
   .list-box-items li.selected {
     background-color: #e0e0e0;
   }
-  
+  .addButton{
+    position: relative;
+    right: 10px;
+  }
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh; 
+  }
