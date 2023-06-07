@@ -19,7 +19,9 @@ import { AuthGuard } from './auth/auth-guard';
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { ProjectMembersComponent } from './components/project-view/project-members/project-members.component';
 import { ProjectViewComponent } from './components/project-view/project-view.component';
-import { SpringListComponent } from './components/project-view/spring-list/spring-list.component';
+import { ProjectService } from './services/project.service';
+import { SprintListComponent } from './components/project-view/sprint-list/sprint-list.component';
+import { SprintItemComponent } from './components/project-view/sprint-list/sprint-item/sprint-item.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { SpringListComponent } from './components/project-view/spring-list/sprin
     LoginComponent,
     ProjectMembersComponent,
     ProjectViewComponent,
-    SpringListComponent
+    SprintListComponent,
+    SprintItemComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ import { SpringListComponent } from './components/project-view/spring-list/sprin
     FormsModule,
     MatSnackBarModule
   ],
-  providers: [AuthService , AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [AuthService , AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
