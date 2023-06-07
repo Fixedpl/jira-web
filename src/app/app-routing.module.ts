@@ -8,6 +8,7 @@ import { ProjectlistComponent } from './components/main/projectlist/projectlist.
 import { MainComponent } from './components/main/main.component';
 
 
+
 const routes: Routes = [
 	{ path: '', component: LoginComponent },
   { path: 'dashboard', component: MainComponent, canActivate: [AuthGuard], children: [
