@@ -12,11 +12,7 @@ export class AuthService {
     constructor(private http: HttpClient) {
     
     }
-    createProject(projectName: string, projectDescription: string, startDate: String, endDate: String) {
-        
-        return this.http.post<AuthResponse>('/api/v1/auth/create-project', {projectName, projectDescription, startDate, endDate} );
-    }
-
+    
     register(email: string, password: string) {
         return this.http.post<AuthResponse>('/api/v1/auth/register', {email, password});
     }
