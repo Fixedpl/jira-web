@@ -3,8 +3,8 @@
       {{ title }}
     </div>
     <ul class="list-box-items">
-      <li *ngFor="let item of items" (click)="selectItem(item)" [class.selected]="selectedItem === item">
-        {{ item }}
+      <li *ngFor="let item of projectItems" (click)="selectItem(item)" [class.selected]="selectedItem === item.name">
+        {{ item.name }}
       </li>
     </ul>
   </div>

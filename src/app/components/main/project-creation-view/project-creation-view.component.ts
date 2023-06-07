@@ -29,7 +29,7 @@ export class ProjectCreationViewComponent {
     console.log('Utworzono nowy projekt:', this.projectName, this.projectDescription);
   }
   creatProject() {
-    this.newProject.id = Number(1);
+    //this.newProject.id = Number(1);
     this.newProject.name = this.projectName;
     this.newProject.description = this.projectDescription;
     this.newProject.startDate = this.startDate.toISOString();

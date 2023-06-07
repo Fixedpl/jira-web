@@ -31,7 +31,7 @@ export class ProjectViewComponent implements OnInit {
       const projectId: number = parseInt(projectIdString);
       this.projectService.getById(projectId).subscribe(project => {
         this.project = project;
-        this.projectService.getSprints(this.project.id).subscribe(sprints => {
+        this.projectService.getSprints(this.project?.id).subscribe(sprints => {
           console.log(sprints);
           this.activeSprint = sprints.find(sprint => sprint.active === true);
           this.plannedSprints = sprints.filter(sprint => sprint.actualEndDate === null && sprint.active === false);
