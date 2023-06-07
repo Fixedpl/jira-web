@@ -1,0 +1,23 @@
+<h1>
+    Aktualny sprint
+</h1>
+<div *ngIf="activeSprint">
+    <app-sprint-item [sprint]="activeSprint"></app-sprint-item>
+</div>
+<div *ngIf="activeSprint === undefined">Brak aktywnego sprintu.</div>
+<h1>
+    Planowane sprinty
+</h1>
+<ul>
+    <li *ngFor="let sprint of plannedSprints" (click)="onItemClick(sprint)">
+        <app-sprint-item [sprint]="sprint"></app-sprint-item>
+    </li>
+</ul>
+<h1>
+    Ukończone sprinty
+</h1>
+<ul>
+    <li *ngFor="let sprint of finishedSprints" (click)="onItemClick(sprint)">
+        <app-sprint-item [sprint]="sprint"></app-sprint-item>
+    </li>
+</ul>

@@ -2,7 +2,7 @@
     <mat-sidenav #sidenav mode="side" opened="true">
       <!-- Zawartość SideNav -->
       <ul>
-        <li><a (mouseup)="performAction()">Strona główna</a></li>
+        <li><a routerLink="dashboard">Strona główna</a></li>
         <li><a routerLink="/">Backlog</a></li>
         <li><a routerLink="/about">Aktywne sprinty</a></li>
         <li><a routerLink="/contact">{{this.nameOfProject}}</a></li>

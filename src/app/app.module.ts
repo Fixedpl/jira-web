@@ -19,7 +19,9 @@ import { AuthGuard } from './auth/auth-guard';
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { ProjectMembersComponent } from './components/project-view/project-members/project-members.component';
 import { ProjectViewComponent } from './components/project-view/project-view.component';
-import { SpringListComponent } from './components/project-view/spring-list/spring-list.component';
+import { ProjectService } from './services/project.service';
+import { SprintListComponent } from './components/project-view/sprint-list/sprint-list.component';
+import { SprintItemComponent } from './components/project-view/sprint-list/sprint-item/sprint-item.component';
 import { SidenavComponent } from './components/main/sidenav/sidenav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { ProjectlistComponent } from './components/main/projectlist/projectlist.component';
@@ -38,7 +40,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     LoginComponent,
     ProjectMembersComponent,
     ProjectViewComponent,
-    SpringListComponent,
+    SprintListComponent,
+    SprintItemComponent,
     SidenavComponent,
     ProjectlistComponent,
     ProjectCreationViewComponent
@@ -60,7 +63,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatFormFieldModule,
     MatNativeDateModule
   ],
-  providers: [AuthService , AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [AuthService , AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, ProjectService],
   bootstrap: [AppComponent], schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

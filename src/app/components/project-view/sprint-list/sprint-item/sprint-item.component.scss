@@ -1,9 +1,15 @@
-ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
+.title {
+    font-size: 20px;
+}
+
+.details {
+    font-size: 14px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     cursor: pointer;
     padding: 10px 20px;
     margin-bottom: 10px;
@@ -12,12 +18,10 @@ ul {
     border-radius: 10px;
     transition: border-color 0.3s;
     height: 44px;
-    font-size: 20px;
-    display: flex;
     align-items: center;
-  }
-  
-  li:hover {
+}
+
+.container:hover {
     background-color: #e6e6e6;
     border-color: rgb(0, 255, 170);
-  }
+}
