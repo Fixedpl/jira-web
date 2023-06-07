@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +22,15 @@ import { ProjectViewComponent } from './components/project-view/project-view.com
 import { ProjectService } from './services/project.service';
 import { SprintListComponent } from './components/project-view/sprint-list/sprint-list.component';
 import { SprintItemComponent } from './components/project-view/sprint-list/sprint-item/sprint-item.component';
+import { SidenavComponent } from './components/main/sidenav/sidenav.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { ProjectlistComponent } from './components/main/projectlist/projectlist.component';
+import { ProjectCreationViewComponent } from './components/main/project-creation-view/project-creation-view.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
 
 @NgModule({
   declarations: [
@@ -31,7 +40,10 @@ import { SprintItemComponent } from './components/project-view/sprint-list/sprin
     ProjectMembersComponent,
     ProjectViewComponent,
     SprintListComponent,
-    SprintItemComponent
+    SprintItemComponent,
+    SidenavComponent,
+    ProjectlistComponent,
+    ProjectCreationViewComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +56,13 @@ import { SprintItemComponent } from './components/project-view/sprint-list/sprin
     MatButtonModule,
     MatIconModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule
   ],
   providers: [AuthService , AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, ProjectService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent], schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

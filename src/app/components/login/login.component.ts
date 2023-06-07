@@ -29,7 +29,7 @@ export class LoginComponent {
     this.authService.register(this.remail, this.rpassword)
       .subscribe(res => {
         this.authService.setSession(res.token);
-        this.router.navigate(['/']);
+        this.router.navigate(['/dashboard']);
       });
   }
 
@@ -38,7 +38,7 @@ export class LoginComponent {
     this.authService.login(this.email, this.password)
       .subscribe(res => {
         this.authService.setSession(res.token);
-        this.router.navigate(['/']);
+        this.router.navigate(['/dashboard']);
       });
   }
 }

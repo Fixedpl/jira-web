@@ -1,1 +1,21 @@
-<p>main works!</p>
+<header>
+    <a class="logo" >Jira klon</a>
+    <nav>
+        <ul class="nav__links">
+            <li><a routerLink="projects">Projekty</a></li>
+            <li><a routerLink="board">Tablica</a></li>
+            <li><a routerLink="create-project">Utwórz projekt</a></li>
+        </ul>
+    </nav>
+    <a class="cta" href="#">Kontakt</a>
+    <p class="menu cta">Menu</p>
+</header>
+<div class="overlay">
+    <a class="close">&times;</a>
+    <div class="overlay__content">
+        <a routerLink="projects">Projekty</a>
+        <a routerLink="board">Tablica</a>
+        <a routerLink="create-project" >Utwórz projekt</a>
+    </div>
+</div>
+<app-sidenav></app-sidenav>
