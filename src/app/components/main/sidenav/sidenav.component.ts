@@ -21,7 +21,7 @@ export class SidenavComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router, private http: HttpClient){}
 
   ngOnInit(): void {
-    this.getNavDate();
+    //this.getNavDate();
   }
 
   getNavDate(): void {

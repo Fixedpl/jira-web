@@ -29,6 +29,7 @@ import { ProjectCreationViewComponent } from './components/main/project-creation
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AccountViewComponent } from './components/main/account-view/account-view.component';
 
 
 
@@ -44,7 +45,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     SprintItemComponent,
     SidenavComponent,
     ProjectlistComponent,
-    ProjectCreationViewComponent
+    ProjectCreationViewComponent,
+    AccountViewComponent
   ],
   imports: [
     BrowserModule,

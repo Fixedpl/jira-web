@@ -22,5 +22,9 @@ export class ProjectService {
   getSprints(id: number): Observable<Sprint[]> {
     return this.http.get<Sprint[]>('api/v1/project/' + id + '/sprint');
   }
+  createProject(project: Project) {
+        
+    return this.http.post('/api/v1/project/create', {project});
+}
 
 }
