@@ -38,6 +38,6 @@ export class SidenavComponent implements OnInit {
       
   }
   performAction() {
-        this.current = 'default';
+       
     }
 }
