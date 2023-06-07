@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +20,15 @@ import { AuthInterceptor } from './auth/auth-interceptor';
 import { ProjectMembersComponent } from './components/project-view/project-members/project-members.component';
 import { ProjectViewComponent } from './components/project-view/project-view.component';
 import { SpringListComponent } from './components/project-view/spring-list/spring-list.component';
+import { SidenavComponent } from './components/main/sidenav/sidenav.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { ProjectlistComponent } from './components/main/projectlist/projectlist.component';
+import { ProjectCreationViewComponent } from './components/main/project-creation-view/project-creation-view.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
 
 @NgModule({
   declarations: [
@@ -28,7 +37,10 @@ import { SpringListComponent } from './components/project-view/spring-list/sprin
     LoginComponent,
     ProjectMembersComponent,
     ProjectViewComponent,
-    SpringListComponent
+    SpringListComponent,
+    SidenavComponent,
+    ProjectlistComponent,
+    ProjectCreationViewComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +53,13 @@ import { SpringListComponent } from './components/project-view/spring-list/sprin
     MatButtonModule,
     MatIconModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule
   ],
   providers: [AuthService , AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent], schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
