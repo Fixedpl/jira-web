@@ -1,9 +1,12 @@
 <div class="container sprint">
-    <div class="title">
+    <div class="title" (click)="onSprintPressed(sprint)">
         {{ sprint.title }}
     </div>
     <div class="details">
-        {{ sprint.startDate }} - {{ sprint.endDate }}
-        <button type="submit">Text</button>
+        {{ sprint.startDate | date: 'dd/MM' }} - {{ sprint.endDate | date: 'dd/MM' }}
+        <mat-icon *ngIf="sprintStartable" class="icon-size" matTooltip="Rozpocznij"
+            (click)="openConfirmSprintStartDialog(sprint, '250ms', '0ms')">play_arrow</mat-icon>
+        <mat-icon *ngIf="sprintFinishable" class="icon-size" matTooltip="Zakończ"
+            (click)="openConfirmSprintEndDialog(sprint, '250ms', '0ms')">flag</mat-icon>
     </div>
 </div>

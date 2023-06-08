@@ -1,23 +1,54 @@
 <h1>
+  Sprinty
+</h1>
+<div class="activeSprint">
+  <h1>
     Aktualny sprint
-</h1>
-<div *ngIf="activeSprint">
-    <app-sprint-item [sprint]="activeSprint"></app-sprint-item>
+  </h1>
+  <div *ngIf="activeSprint">
+    <app-sprint-item
+      [sprint]="activeSprint"
+      [sprintStartable]="false"
+      [sprintFinishable]="true"
+      (sprintPressed)="onSprintPressed($event)"
+      (sprintFinished)="onSprintEnd($event)"
+    ></app-sprint-item>
+  </div>
+  <div *ngIf="activeSprint === undefined">Brak aktywnego sprintu.</div>
 </div>
-<div *ngIf="activeSprint === undefined">Brak aktywnego sprintu.</div>
-<h1>
+
+<div class="plannedSprints">
+  <h1>
     Planowane sprinty
-</h1>
-<ul>
-    <li *ngFor="let sprint of plannedSprints" (click)="onItemClick(sprint)">
-        <app-sprint-item [sprint]="sprint"></app-sprint-item>
+  </h1>
+  <ul>
+    <li *ngFor="let sprint of plannedSprints">
+      <app-sprint-item
+        [sprint]="sprint"
+        [sprintStartable]="activeSprint === undefined"
+        [sprintFinishable]="false"
+        (sprintPressed)="onSprintPressed($event)"
+        (sprintStarted)="onSprintStart($event)"
+      ></app-sprint-item>
     </li>
-</ul>
-<h1>
+  </ul>
+  <div *ngIf="plannedSprints.length === 0">Brak zaplanowanych sprintów.</div>
+</div>
+
+<div class="finishedSprints">
+  <h1>
     Ukończone sprinty
-</h1>
-<ul>
-    <li *ngFor="let sprint of finishedSprints" (click)="onItemClick(sprint)">
-        <app-sprint-item [sprint]="sprint"></app-sprint-item>
+  </h1>
+  <ul>
+    <li *ngFor="let sprint of finishedSprints">
+      <app-sprint-item
+        [sprint]="sprint"
+        [sprintStartable]="false"
+        [sprintFinishable]="false"
+        (sprintPressed)="onSprintPressed($event)"
+      ></app-sprint-item>
     </li>
-</ul>
+  </ul>
+  <div *ngIf="finishedSprints.length === 0">Nie ukończono żadnego sprintu.</div>
+</div>
+

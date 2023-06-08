@@ -19,8 +19,4 @@ export class ProjectService {
     return this.http.get<Project>('api/v1/project/' + id);
   }
 
-  getSprints(id: number): Observable<Sprint[]> {
-    return this.http.get<Sprint[]>('api/v1/project/' + id + '/sprint');
-  }
-
 }

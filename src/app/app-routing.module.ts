@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'dashboard', component: MainComponent, canActivate: [AuthGuard], children: [
     { path: 'project-list', component: ProjectlistComponent },
     { path: 'project/:id', component: ProjectViewComponent },
-    { path: 'create-project', component: ProjectCreationViewComponent, canActivate: [AuthGuard]}
+    { path: 'create-project', component: ProjectCreationViewComponent },
+    { path: 'sprint/:id', component: MainComponent }
   ]},
   
 ];
