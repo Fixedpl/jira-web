@@ -8,11 +8,23 @@ import { Component } from '@angular/core';
 
 export class AccountViewComponent {
   
-name: string = "Robert";
-email: string = "hasło_do_bazy_to_kris";
-username: string = "jestem_kris";
-role: string;
-  
-  
+  editingEnabled: boolean = false;
+  firstName: string = 'Karol';
+  lastName: string = 'Wojtyła';
+  country: string = 'Polska';
+  birthday: string = '13 July 1983';
+  position: string = 'Papież';
+  email: string = 'jp2137@kremowki.com';
+  phoneNumber: string = '88 (02) 123456';
+
+  enableEditing() {
+    this.editingEnabled = true;
+  }
+
+  saveChanges() {
+    this.editingEnabled = false;
+    // Tutaj możesz wykonać dodatkowe operacje, takie jak zapisanie zmian do serwera.
+  }
+ 
   
 }
