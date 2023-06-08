@@ -1,13 +1,5 @@
 import { Component } from '@angular/core';
 
-interface User {
-  name: string;
-  email: string;
-  username: string;
-  role: string;
-};
-
-
 @Component({
   selector: 'app-account-view',
   templateUrl: './account-view.component.html',
@@ -16,6 +8,11 @@ interface User {
 
 export class AccountViewComponent {
   
-  user: User;
+name: string = "Robert";
+email: string = "hasło_do_bazy_to_kris";
+username: string = "jestem_kris";
+role: string;
+  
+  
   
 }
