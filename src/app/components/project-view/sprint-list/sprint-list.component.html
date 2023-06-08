@@ -1,54 +1,57 @@
-<h1>
+<div class="sprintsHeader">
   Sprinty
-</h1>
-<div class="activeSprint">
-  <h1>
-    Aktualny sprint
-  </h1>
-  <div *ngIf="activeSprint">
-    <app-sprint-item
-      [sprint]="activeSprint"
-      [sprintStartable]="false"
-      [sprintFinishable]="true"
-      (sprintPressed)="onSprintPressed($event)"
-      (sprintFinished)="onSprintEnd($event)"
-    ></app-sprint-item>
-  </div>
-  <div *ngIf="activeSprint === undefined">Brak aktywnego sprintu.</div>
+  <div matTooltip="Dodaj" class="addButton" (click)="openAddSprintDialog('250ms', '0ms')">+</div>
 </div>
 
-<div class="plannedSprints">
-  <h1>
-    Planowane sprinty
-  </h1>
-  <ul>
-    <li *ngFor="let sprint of plannedSprints">
-      <app-sprint-item
-        [sprint]="sprint"
-        [sprintStartable]="activeSprint === undefined"
-        [sprintFinishable]="false"
-        (sprintPressed)="onSprintPressed($event)"
-        (sprintStarted)="onSprintStart($event)"
-      ></app-sprint-item>
-    </li>
-  </ul>
-  <div *ngIf="plannedSprints.length === 0">Brak zaplanowanych sprintów.</div>
-</div>
+<div class="sprints">
+  <div class="sprints-content">
 
-<div class="finishedSprints">
-  <h1>
-    Ukończone sprinty
-  </h1>
-  <ul>
-    <li *ngFor="let sprint of finishedSprints">
+    <div *ngIf="activeSprint">
       <app-sprint-item
-        [sprint]="sprint"
+        [sprint]="activeSprint"
         [sprintStartable]="false"
-        [sprintFinishable]="false"
+        [sprintFinishable]="true"
+        [highlight]="true"
         (sprintPressed)="onSprintPressed($event)"
+        (sprintFinished)="onSprintEnd($event)"
       ></app-sprint-item>
-    </li>
-  </ul>
-  <div *ngIf="finishedSprints.length === 0">Nie ukończono żadnego sprintu.</div>
+    </div>
+    <div *ngIf="activeSprint === undefined">Brak aktywnego sprintu.</div>
+
+    <mat-tab-group mat-align-tabs="start" color="primary" class="test">
+      <mat-tab label="Zaplanowane">
+
+        <ul>
+          <li *ngFor="let sprint of plannedSprints">
+            <app-sprint-item
+              [sprint]="sprint"
+              [sprintStartable]="activeSprint === undefined"
+              [sprintFinishable]="false"
+              (sprintPressed)="onSprintPressed($event)"
+              (sprintStarted)="onSprintStart($event)"
+            ></app-sprint-item>
+          </li>
+        </ul>
+        <div *ngIf="plannedSprints.length === 0">Brak zaplanowanych sprintów.</div>
+
+      </mat-tab>
+      <mat-tab label="Ukończone">
+
+        <ul>
+          <li *ngFor="let sprint of finishedSprints">
+            <app-sprint-item
+              [sprint]="sprint"
+              [sprintStartable]="false"
+              [sprintFinishable]="false"
+              (sprintPressed)="onSprintPressed($event)"
+            ></app-sprint-item>
+          </li>
+        </ul>
+        <div *ngIf="finishedSprints.length === 0">Nie ukończono żadnego sprintu.</div>
+
+      </mat-tab>
+    </mat-tab-group>
+  </div>
 </div>
+
 

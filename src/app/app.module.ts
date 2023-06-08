@@ -32,6 +32,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { SprintService } from './services/sprint.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 
@@ -65,7 +66,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule,
     MatNativeDateModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDividerModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

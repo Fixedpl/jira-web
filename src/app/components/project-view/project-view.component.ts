@@ -14,12 +14,10 @@ import { SprintService } from 'src/app/services/sprint.service';
 export class ProjectViewComponent implements OnInit {
 
   project: Project;
-  activeSprint: Sprint | undefined;
-  plannedSprints: Sprint[];
-  finishedSprints: Sprint[];
 
   projectName: string = "";
   projectDescription: string = "";
+  projectId: number | null = null;
 
   constructor(
     private projectService: ProjectService,
@@ -40,34 +38,11 @@ export class ProjectViewComponent implements OnInit {
         this.project = project;
         this.projectName = project.name;
         this.projectDescription = project.description;
-
-        this.loadSprints(this.project.id);
+        this.projectId = project.id;
       });
     })
   }
 
-  onSprintStart(sprint: Sprint): void {
-    this.sprintService.startSprint(sprint.id).subscribe(hasStarted => {
-      if(hasStarted) {
-        this.loadSprints(this.project.id);
-      }
-    });
-  }
 
-  onSprintEnd(sprint: Sprint): void {
-    this.sprintService.endSprint(sprint.id).subscribe(hasFinished => {
-      if(hasFinished) {
-        this.loadSprints(this.project.id);
-      }
-    });
-  }
-
-  loadSprints(projectId: number): void {
-    this.sprintService.getSprints(projectId).subscribe(sprints => {
-      this.activeSprint = sprints.find(sprint => sprint.active);
-      this.plannedSprints = sprints.filter(sprint => sprint.actualEndDate === null && !sprint.active);
-      this.finishedSprints = sprints.filter(sprint => sprint.actualEndDate !== null && !sprint.active);
-    });
-  }
 
 }

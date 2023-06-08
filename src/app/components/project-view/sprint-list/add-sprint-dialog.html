@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Dodawanie sprintu</h1>
+<div mat-dialog-content style="padding-top: 10px; margin-left: 30px">
+  <mat-form-field appearance="outline" style="width: 90%">
+    <mat-label>Tytuł</mat-label>
+    <input matInput [value]="title">
+  </mat-form-field>
+  <mat-form-field appearance="outline" style="margin-top: 10px; margin-bottom: 10px;">
+    <mat-label>Data rozpoczęcia</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-hint>DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Data zakończenia</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-hint>DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions style="display: flex; justify-content: end">
+  <button mat-button mat-dialog-close (click)="onAnuluj()">Anuluj</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="onDodaj()">Dodaj</button>
+</div>

@@ -1,4 +1,4 @@
-<div class="container sprint">
+<div class="container" [ngStyle]="{'box-shadow': highlight ? '0 0 3px 3px lightgray' : '0'}">
     <div class="title" (click)="onSprintPressed(sprint)">
         {{ sprint.title }}
     </div>

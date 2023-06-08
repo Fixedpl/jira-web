@@ -3,14 +3,37 @@ ul {
     padding: 0;
 }
 
-.activeSprint {
-  padding:8px 0px;
+.sprints {
+  border: 1px solid #ccc;
+  border-radius: 16px;
 }
 
-.plannedSprints {
-  padding:8px 0px;
+.sprints-content {
+  padding: 20px;
 }
 
-.finishedSprints {
-  padding:8px 0px;
+.sprintsHeader {
+  font-size: 26px;
+  margin: 0px 16px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addButton {
+  background-color: aquamarine;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: gray;
+  box-shadow: 0 0 1px 1px gray;
+  cursor: pointer;
+}
+
+.test {
+  margin-top: 20px;
 }

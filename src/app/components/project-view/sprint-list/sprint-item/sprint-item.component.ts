@@ -12,6 +12,7 @@ export class SprintItemComponent {
   @Input() sprint: Sprint;
   @Input() sprintStartable: boolean = false;
   @Input() sprintFinishable: boolean = false;
+  @Input() highlight: boolean = false;
   @Output() sprintStarted = new EventEmitter<Sprint>();
   @Output() sprintFinished = new EventEmitter<Sprint>();
   @Output() sprintPressed = new EventEmitter<Sprint>();
@@ -27,7 +28,7 @@ export class SprintItemComponent {
       width: '350px',
       enterAnimationDuration,
       exitAnimationDuration,
-    }).beforeClosed().subscribe(isConfirm => {
+    }).afterClosed().subscribe(isConfirm => {
       if(isConfirm) {
         this.sprintStarted.emit(sprint);
       }

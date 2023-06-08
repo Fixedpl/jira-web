@@ -11,13 +11,8 @@
         {{ this.projectDescription }}
       </div>
 
-      <app-sprint-list
-      [activeSprint]="undefined"
-      [plannedSprints]="[]"
-      [finishedSprints]="[]"
-      (sprintStarted)="onSprintStart($event)"
-      (sprintFinished)="onSprintEnd($event)"
-      ></app-sprint-list>
+      <app-sprint-list [projectId]="projectId"></app-sprint-list>
+
     </div>
     <div class="members" style="float: left;">
       <app-project-members></app-project-members>
