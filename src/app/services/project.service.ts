@@ -9,14 +9,16 @@ import { Sprint } from '../models/sprint';
 })
 export class ProjectService {
 
+  BASE_PATH: string = 'api/v1/project/';
+
   constructor(private http: HttpClient) { }
 
   getProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>('/api/v1/project');
+    return this.http.get<Project[]>(this.BASE_PATH);
   }
 
   getById(id: number): Observable<Project> {
-    return this.http.get<Project>('api/v1/project/' + id);
+    return this.http.get<Project>(this.BASE_PATH + id);
   }
 
 }

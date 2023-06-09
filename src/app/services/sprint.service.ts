@@ -17,15 +17,15 @@ export class SprintService {
   }
 
   addSprint(sprint: Sprint): Observable<void> {
-    return this.http.post<void>(this.BASE_PATH, { ...sprint });
+    return this.http.post<void>(this.BASE_PATH, sprint);
   }
 
-  startSprint(id: number): Observable<boolean> {
-    return this.http.get<boolean>(this.BASE_PATH + id + '/start');
+  startSprint(id: number): Observable<void> {
+    return this.http.get<void>(this.BASE_PATH + id + '/start');
   }
 
-  endSprint(id: number): Observable<boolean> {
-    return this.http.get<boolean>(this.BASE_PATH + id + '/end');
+  endSprint(id: number): Observable<void> {
+    return this.http.get<void>(this.BASE_PATH + id + '/end');
   }
 
 }

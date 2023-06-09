@@ -1,12 +1,14 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, Inject, Input, OnChanges, SimpleChanges} from '@angular/core';
 import { Router } from '@angular/router';
 import { Sprint } from 'src/app/models/sprint';
 import { SprintService } from "../../../services/sprint.service";
-import {MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
+import {FormsModule} from "@angular/forms";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 
 @Component({
@@ -25,7 +27,8 @@ export class SprintListComponent implements OnChanges{
   constructor(
     private router: Router,
     public dialog: MatDialog,
-    private sprintService: SprintService
+    private sprintService: SprintService,
+    private snackBar: MatSnackBar
     ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -33,17 +36,27 @@ export class SprintListComponent implements OnChanges{
   }
 
   onSprintStart(sprint: Sprint): void {
-    this.sprintService.startSprint(sprint.id).subscribe(hasStarted => {
-      if(hasStarted) {
+    this.sprintService.startSprint(sprint.id).subscribe({
+      complete: () => {
+        this.snackBar.open('Wystartowano sprint');
         this.loadSprints(this.projectId);
+      },
+      error: err => {
+        this.snackBar.open('Nie udało się wystartować sprintu');
+        console.log(err);
       }
     });
   }
 
   onSprintEnd(sprint: Sprint): void {
-    this.sprintService.endSprint(sprint.id).subscribe(hasFinished => {
-      if(hasFinished) {
+    this.sprintService.endSprint(sprint.id).subscribe({
+      complete: () => {
+        this.snackBar.open('Zakończono sprint');
         this.loadSprints(this.projectId);
+      },
+      error: err => {
+        this.snackBar.open('Nie udało się zakończyć sprintu');
+        console.log(err);
       }
     });
   }
@@ -63,17 +76,16 @@ export class SprintListComponent implements OnChanges{
     this.router.navigate(['dashboard/sprint/' + sprint.id]);
   }
 
-  onAddSprint(): void {
-
-  }
-
   openAddSprintDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(AddSprintDialog, {
+      data: this.projectId,
       width: '400px',
       enterAnimationDuration,
       exitAnimationDuration,
-    }).afterClosed().subscribe(sprint => {
-      this.sprintService.addSprint(sprint);
+    }).afterClosed().subscribe(sprintAdded => {
+      if(sprintAdded) {
+        this.loadSprints(this.projectId);
+      }
     });
   }
 
@@ -83,18 +95,38 @@ export class SprintListComponent implements OnChanges{
   selector: 'add-sprint-dialog',
   templateUrl: 'add-sprint-dialog.html',
   standalone: true,
-  imports: [MatDialogModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatDatepickerModule],
+  imports: [MatDialogModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, FormsModule],
 })
 export class AddSprintDialog {
 
   title: string = "";
   startDate: Date;
+  endDate: Date;
 
-  constructor(public dialogRef: MatDialogRef<AddSprintDialog>) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public projectId: number,
+    private sprintService: SprintService,
+    public dialogRef: MatDialogRef<AddSprintDialog>,
+    private snackBar: MatSnackBar
+  ) {}
 
   onDodaj(): void {
-    console.log(this.title);
-    this.dialogRef.close(true);
+    let newSprint: Sprint = new Sprint();
+    newSprint.title = this.title;
+    newSprint.startDate = this.startDate;
+    newSprint.endDate = this.endDate;
+    newSprint.projectId = this.projectId;
+
+    this.sprintService.addSprint(newSprint).subscribe({
+      complete: () => {
+        this.snackBar.open('Pomyślnie dodano sprint');
+        this.dialogRef.close(true);
+      },
+      error: (err) => {
+        this.snackBar.open('Nie udało się dodać sprintu');
+        console.log(err);
+      }
+    });
   }
 
   onAnuluj(): void {

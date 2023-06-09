@@ -33,6 +33,7 @@ import { SprintService } from './services/sprint.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
+import {NgOptimizedImage} from "@angular/common";
 
 
 
@@ -49,26 +50,27 @@ import { MatDividerModule } from '@angular/material/divider';
     ProjectlistComponent,
     ProjectCreationViewComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatTabsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    FormsModule,
-    MatSnackBarModule,
-    MatSidenavModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatNativeDateModule,
-    MatTooltipModule,
-    MatDialogModule,
-    MatDividerModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatTabsModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        FormsModule,
+        MatSnackBarModule,
+        MatSidenavModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatNativeDateModule,
+        MatTooltipModule,
+        MatDialogModule,
+        MatDividerModule,
+        NgOptimizedImage
+    ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     AuthService ,

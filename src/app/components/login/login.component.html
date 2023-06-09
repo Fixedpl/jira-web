@@ -1,7 +1,10 @@
 <div class="center-content">
     <mat-card class="login-card">
       <mat-card-header>
-        <mat-card-title>Jira clone</mat-card-title>
+        <div class="logo-container">
+          <img src="/assets/logo.svg" width="128px" height="128px" style="margin-bottom: 20px">
+          Jira
+        </div>
       </mat-card-header>
       <mat-card-content>
         <mat-tab-group dynamicHeight>
@@ -11,7 +14,7 @@
               <input type="email" matInput placeholder="Email" value="" [(ngModel)]="email">
               <mat-icon matSuffix>email</mat-icon>
             </mat-form-field>
-  
+
             <mat-form-field class="full-width">
               <mat-label>Password</mat-label>
               <input type="password" matInput placeholder="Password" [(ngModel)]="password">
@@ -26,7 +29,7 @@
               <input type="email" matInput placeholder="Email" value="" [(ngModel)]="remail">
               <mat-icon matSuffix>email</mat-icon>
             </mat-form-field>
-  
+
             <mat-form-field class="full-width">
               <mat-label>Password</mat-label>
               <input type="password" matInput placeholder="Password" [(ngModel)]="rpassword">
@@ -40,8 +43,8 @@
             <button mat-button color="primary" (click)="register()">Register</button>
           </mat-tab>
         </mat-tab-group>
-  
+
       </mat-card-content>
-  
+
     </mat-card>
   </div>

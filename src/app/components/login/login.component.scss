@@ -1,7 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
 .login-card {
     max-width: 500px;
   }
-  
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  text-shadow: 0 0 24px white;
+  font-family: 'Roboto Slab', serif;
+  color: aquamarine;
+  width: 100%;
+  letter-spacing: 2px;
+  margin: 40px 0;
+}
+
   .header-image {
     background-size: cover;
   }
@@ -14,7 +30,7 @@
     max-width: 500px;
     width: 100%;
   }
-  
+
   .full-width {
     margin-top: 10px;
     width: 100%;

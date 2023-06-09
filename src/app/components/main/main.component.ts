@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 
 
@@ -8,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent {
+
+  constructor(private router: Router) {
+  }
+
+  onLogoPressed(): void {
+    this.router.navigate(['/dashboard']);
+  }
 
 }

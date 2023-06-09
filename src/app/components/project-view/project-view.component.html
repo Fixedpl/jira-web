@@ -11,11 +11,15 @@
         {{ this.projectDescription }}
       </div>
 
-      <app-sprint-list [projectId]="projectId"></app-sprint-list>
+      <app-sprint-list
+        [projectId]="projectId"
+      ></app-sprint-list>
 
     </div>
     <div class="members" style="float: left;">
-      <app-project-members></app-project-members>
+      <app-project-members
+        [projectId]="projectId"
+      ></app-project-members>
     </div>
   </mat-card-content>
 
