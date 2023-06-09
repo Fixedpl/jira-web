@@ -3,9 +3,12 @@
       {{ title }}
     </div>
     <ul class="list-box-items">
-      <li *ngFor="let item of items" (click)="selectItem(item)" [class.selected]="selectedItem === item">
-        {{ item }}
+      <li *ngFor="let item of projectItems" (click)="selectItem(item)" [class.selected]="selectedItem === item.name">
+        {{ item.name }}
       </li>
     </ul>
   </div>
-
+  <div class="button-container">
+    <button class="addButton" mat-fab extended (click)="goToCreationProject()"><b><mat-icon>add</mat-icon></b></button>
+  </div>
+  

@@ -8,10 +8,11 @@ import { ProjectlistComponent } from './components/main/projectlist/projectlist.
 import { MainComponent } from './components/main/main.component';
 
 
+
 const routes: Routes = [
 	{ path: '', component: LoginComponent },
   { path: 'dashboard', component: MainComponent, canActivate: [AuthGuard], children: [
-    { path: 'project-list', component: ProjectlistComponent },
+    { path: '', component: ProjectlistComponent },
     { path: 'project/:id', component: ProjectViewComponent },
     { path: 'create-project', component: ProjectCreationViewComponent },
     { path: 'sprint/:id', component: MainComponent }

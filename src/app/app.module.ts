@@ -31,6 +31,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SprintService } from './services/sprint.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { AccountViewComponent } from './components/main/account-view/account-view.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import {NgOptimizedImage} from "@angular/common";
@@ -48,7 +49,8 @@ import {NgOptimizedImage} from "@angular/common";
     SprintItemComponent,
     SidenavComponent,
     ProjectlistComponent,
-    ProjectCreationViewComponent
+    ProjectCreationViewComponent,
+    AccountViewComponent
   ],
     imports: [
         BrowserModule,

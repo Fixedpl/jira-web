@@ -21,13 +21,26 @@ export class SidenavComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router, private http: HttpClient){}
 
   ngOnInit(): void {
-    //this.getNavDate();
+    this.getNavDate();
   }
 
   getNavDate(): void {
-
+    this.http.get('/api/v1/home/getProjectName',{responseType: "text"}).subscribe(
+      (data)=> {
+        console.log(data)
+        this.nameOfProject = data;
+      },
+      (error)=>{
+        console.error("Wystapił bład podczas wywoływania endpointu")
+        console.log(error)
+      }
+      );
+      
   }
+<<<<<<< HEAD
   performAction() {
        
     }
+=======
+>>>>>>> origin/PROJECT_VIEW_2
 }

@@ -7,11 +7,12 @@ import { JwtToken } from "./model/jwt-token";
 
 @Injectable()
 export class AuthService {
+    
 
     constructor(private http: HttpClient) {
-
+    
     }
-
+    
     register(email: string, password: string) {
         return this.http.post<AuthResponse>('/api/v1/auth/register', {email, password});
     }
