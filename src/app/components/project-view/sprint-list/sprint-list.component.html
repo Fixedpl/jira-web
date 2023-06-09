@@ -21,7 +21,7 @@
     <mat-tab-group mat-align-tabs="start" color="primary" class="test">
       <mat-tab label="Zaplanowane">
 
-        <ul>
+        <ul style="margin-top: 20px">
           <li *ngFor="let sprint of plannedSprints">
             <app-sprint-item
               [sprint]="sprint"
@@ -37,7 +37,7 @@
       </mat-tab>
       <mat-tab label="Ukończone">
 
-        <ul>
+        <ul style="margin-top: 20px">
           <li *ngFor="let sprint of finishedSprints">
             <app-sprint-item
               [sprint]="sprint"

@@ -5,22 +5,26 @@
   </mat-card-header>
 
   <mat-card-content>
-    <div class="main" style="float: left;">
+    <div style="padding: 0px 16px;display:flex;">
 
-      <div class="project-description">
-        {{ this.projectDescription }}
+
+      <div class="main">
+        <div class="project-description">
+          {{ this.projectDescription }}
+        </div>
+
+        <app-sprint-list
+          [projectId]="projectId"
+        ></app-sprint-list>
       </div>
 
-      <app-sprint-list
-        [projectId]="projectId"
-      ></app-sprint-list>
+      <div class="members">
+        <app-project-members
+          [projectId]="projectId"
+        ></app-project-members>
+      </div>
+    </div>
 
-    </div>
-    <div class="members" style="float: left;">
-      <app-project-members
-        [projectId]="projectId"
-      ></app-project-members>
-    </div>
   </mat-card-content>
 
 </mat-card>
