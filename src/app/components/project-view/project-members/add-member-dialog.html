@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Dodawanie użytkownika</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="outline" style="padding-top: 10px;width: 350px">
+    <mat-label>E-mail</mat-label>
+    <input matInput [(ngModel)]="email">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions style="display: flex; justify-content: end">
+  <button mat-button mat-dialog-close (click)="onAnuluj()">Anuluj</button>
+  <button mat-button cdkFocusInitial (click)="onDodaj()">Dodaj</button>
+</div>

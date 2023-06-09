@@ -36,7 +36,7 @@ ul li {
 }
 
 ul li:hover {
-    background-color: #ccc;
+    background-color: gray;
 }
 
 .ul li:last-child {
@@ -54,6 +54,14 @@ ul li:hover {
 
 .employee-container {
     padding:0.01em 16px;
+}
+
+.employee-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  width: 99%;
 }
 
 .employee-bar {
@@ -85,11 +93,16 @@ ul li:hover {
     padding: 15px;
 }
 
-.employee-button:hover {
-    color:#000!important;
-    background-color:#ccc!important;
-}
-
-.float-right {
-    float:right;
+.addButton {
+  background-color: aquamarine;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: gray;
+  box-shadow: 0 0 1px 1px gray;
+  cursor: pointer;
 }

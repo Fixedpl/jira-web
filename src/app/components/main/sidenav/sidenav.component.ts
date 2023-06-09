@@ -25,17 +25,7 @@ export class SidenavComponent implements OnInit {
   }
 
   getNavDate(): void {
-    this.http.get('/api/v1/home/getProjectName',{responseType: "text"}).subscribe(
-      (data)=> {
-        console.log(data)
-        this.nameOfProject = data;
-      },
-      (error)=>{
-        console.error("Wystapił bład podczas wywoływania endpointu")
-        console.log(error)
-      }
-      );
-      
+
   }
   performAction() {
        

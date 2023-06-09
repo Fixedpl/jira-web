@@ -1,5 +1,9 @@
 <header>
-    <a class="logo" >Jira klon</a>
+  <div class="logo-container" (click)="onLogoPressed()">
+    <img src="/assets/logo.svg" width="48px" height="48px">
+    Jira
+  </div>
+
     <nav>
         <ul class="nav__links">
             <li><a routerLink="projects">Projekty</a></li>

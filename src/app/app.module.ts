@@ -29,8 +29,12 @@ import { ProjectCreationViewComponent } from './components/main/project-creation
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
+import { SprintService } from './services/sprint.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { AccountViewComponent } from './components/main/account-view/account-view.component';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import {NgOptimizedImage} from "@angular/common";
 
 
 
@@ -48,24 +52,34 @@ import { AccountViewComponent } from './components/main/account-view/account-vie
     ProjectCreationViewComponent,
     AccountViewComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatTabsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    FormsModule,
-    MatSnackBarModule,
-    MatSidenavModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatNativeDateModule
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatTabsModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        FormsModule,
+        MatSnackBarModule,
+        MatSidenavModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatNativeDateModule,
+        MatTooltipModule,
+        MatDialogModule,
+        MatDividerModule,
+        NgOptimizedImage
+    ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    AuthService ,
+    AuthGuard,
+    ProjectService,
+    SprintService
   ],
-  providers: [AuthService , AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, ProjectService],
   bootstrap: [AppComponent], schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
