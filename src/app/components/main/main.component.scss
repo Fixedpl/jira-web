@@ -1,20 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  header {
+.menu-navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 5%;
     background-color: #24252a;
-  }
+}
 
-  .logo-container {
+.logo-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,11 +19,75 @@
     width: 150px;
     letter-spacing: 2px;
     cursor: pointer;
-  }
+}
 
-  .nav__links a,
-  .cta,
-  .overlay__content a {
+.right-navbar {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 10px;
+  border: 5px solid #24252a;
+  border-radius: 15px;
+  margin-right: 5px;
+}
+
+.profile:hover {
+  background-color: gray;
+  border: 5px solid gray;
+  border-radius: 15px;
+  box-shadow: 0 0 3px white;
+  cursor: pointer;
+  color: aquamarine;
+}
+
+.name-and-email {
+  text-align: right;
+  margin-right: 8px;
+}
+
+.name {
+  font-size: 18px;
+}
+
+.email {
+  font-size: 12px;
+}
+
+.icon {
+  font-size: 30px;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  border: 5px solid #24252a;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon:hover {
+  background-color: gray;
+  border: 5px solid gray;
+  border-radius: 15px;
+  box-shadow: 0 0 3px lightgray;
+  color: aquamarine;
+}
+
+.bg:hover {
+  animation: pulse 1.2s ease infinite;
+}
+
+.circle {
+  border-radius:50%;
+}
+
+  .nav__links a {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     color: #edf0f1;
@@ -54,85 +112,3 @@
     color: #0088a9;
   }
 
-  .cta {
-    padding: 9px 25px;
-    background-color: rgba(0, 136, 169, 1);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s ease 0s;
-  }
-
-  .cta:hover {
-    background-color: rgba(0, 136, 169, 0.8);
-  }
-
-  /* Mobile Nav */
-
-  .menu {
-    display: none;
-  }
-
-  .overlay {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    background-color: #24252a;
-    overflow-x: hidden;
-    transition: width 0.5s ease 0s;
-  }
-
-  .overlay--active {
-    width: 100%;
-  }
-
-  .overlay__content {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .overlay a {
-    padding: 15px;
-    font-size: 36px;
-    display: block;
-    transition: color 0.3s ease 0s;
-  }
-
-  .overlay a:hover,
-  .overlay a:focus {
-    color: #0088a9;
-  }
-  .overlay .close {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
-    color: #edf0f1;
-  }
-
-  @media screen and (max-height: 450px) {
-    .overlay a {
-      font-size: 20px;
-    }
-    .overlay .close {
-      font-size: 40px;
-      top: 15px;
-      right: 35px;
-    }
-  }
-
-  @media only screen and (max-width: 800px) {
-    .nav__links,
-    .cta {
-      display: none;
-    }
-    .menu {
-      display: initial;
-    }
-  }
