@@ -1,8 +1,8 @@
 
 export class Project {
-    id?: number;
-    name: String;
-    description: String;
+    id: number;
+    name: string;
+    description: string;
     startDate: String;
     endDate: String;
 }

@@ -1,22 +1,30 @@
+<mat-card class="container">
 
-<div class="container">
-  <div class="title">
-    <h1>{{this.project.name }}</h1>
-  </div>
-  <div class="main"  style="float: left;">
-    <div class="project-description">
-      {{this.project.description}}
+  <mat-card-header class="title">
+    <h1>{{ this.projectName }}</h1>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div style="padding: 0px 16px;display:flex;">
+
+
+      <div class="main">
+        <div class="project-description">
+          {{ this.projectDescription }}
+        </div>
+
+        <app-sprint-list
+          [projectId]="projectId"
+        ></app-sprint-list>
+      </div>
+
+      <div class="members">
+        <app-project-members
+          [projectId]="projectId"
+        ></app-project-members>
+      </div>
     </div>
-    
-      <app-sprint-list 
-      [activeSprint]="activeSprint"
-      [plannedSprints]="plannedSprints"
-      [finishedSprints]="finishedSprints"
-      ></app-sprint-list>
-  </div>
-  <div class="members" style="float: left;">
-    <app-project-members></app-project-members>
-  </div>
-  
-  
-</div>
+
+  </mat-card-content>
+
+</mat-card>

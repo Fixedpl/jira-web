@@ -25,21 +25,13 @@ export class ProjectlistComponent {
 
   checkUserProjects(): void {
     //this.projectItems = this.projectService.checkUserProjects();
-    this.http.get<Project[]>('/api/v1/project/usersProject').subscribe(
-      (response: Project[]) => {
-        this.projectItems = response;
-      },
-      (error: any) => {
-        console.error('Błąd podczas pobierania projektów użytkownika:', error);
-      }
-    );
   }
 
   selectItem(item: Project): void {
     //this.selectedItem = item.name;
     this.router.navigate(['/dashboard/project/' + item.id])
   }
- 
+
   goToCreationProject() {
     this.router.navigate(['/dashboard/create-project']);
   }

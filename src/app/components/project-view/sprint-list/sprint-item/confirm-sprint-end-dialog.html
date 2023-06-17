@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Zakończenie sprintu</h1>
+<div mat-dialog-content>
+  Czy jesteś pewny że chcesz zakończyć ten sprint?
+</div>
+<div mat-dialog-actions style="display: flex; justify-content: end">
+  <button mat-button mat-dialog-close (click)="onAnuluj()">Anuluj</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="onTak()">Tak</button>
+</div>

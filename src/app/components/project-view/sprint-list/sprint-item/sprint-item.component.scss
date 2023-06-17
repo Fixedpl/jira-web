@@ -1,27 +1,36 @@
+
 .title {
-    font-size: 20px;
+    font-size: 17px;
+    cursor: pointer;
 }
 
 .details {
-    font-size: 14px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
 }
 
 .container {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    cursor: pointer;
-    padding: 10px 20px;
     margin-bottom: 10px;
-    border: 3px solid;
-    border-color: aquamarine;
+    padding: 26px 20px ;
+    border: 2px solid aquamarine;
     border-radius: 10px;
     transition: border-color 0.3s;
-    height: 44px;
+    height: 30px;
     align-items: center;
 }
 
 .container:hover {
-    background-color: #e6e6e6;
+    background-color: gray;
     border-color: rgb(0, 255, 170);
+}
+
+.icon-size {
+    font-size: 24px;
+    cursor: pointer;
+    color: aquamarine;
 }
