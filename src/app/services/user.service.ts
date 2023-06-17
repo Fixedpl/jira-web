@@ -31,5 +31,8 @@ export class UserService {
       {},
       { params: new HttpParams().set('email', email) })
   }
+  getActiveUser(): Observable<UserView> {
+    return this.http.get<UserView>(this.BASE_PATH);
+  }
 
 }
