@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UserView } from 'src/app/models/user-view';
+import { AccountService } from 'src/app/services/account.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,25 +9,20 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./account-view.component.scss']
 })
 
-export class AccountViewComponent {
+export class AccountViewComponent implements OnInit {
   
-  userInfo: UserView;
-  userService: UserService;
+  userInfo: UserView = new UserView;
+
 
   editingEnabled: boolean = false;
-  firstName: string = 'Karol';
-  lastName: string = 'Wojtyła';
-  country: string = 'Polska';
-  birthday: string = '13 July 1983';
-  position: string = 'Papież';
-  email: string = 'jp2137@kremowki.com';
-  phoneNumber: string = '88 (02) 123456';
-  avatar: Uint8Array;
+ 
+  constructor(
+    private accountService: AccountService 
+  ){ }
 
   ngOnInit(){
-    
-    this.updateInfo();
-    this.firstName = this.userInfo.email;
+   
+     this.updateInfo();   
  
   }
   enableEditing() {
@@ -34,11 +30,12 @@ export class AccountViewComponent {
   }
 
   saveChanges() {
-    this.editingEnabled = false;
-    // Tutaj możesz wykonać dodatkowe operacje, takie jak zapisanie zmian do serwera.
+    this.accountService.updateUser(this.userInfo)
+      .subscribe(respone => {});
+    
   }
-  updateInfo() {[[]]
-    this.userService.getActiveUser().subscribe((respone: UserView) =>{
+  updateInfo() {
+    this.accountService.getActiveUser().subscribe(respone => {
       this.userInfo = respone;  
     });
     
