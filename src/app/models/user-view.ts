@@ -14,4 +14,7 @@ export class UserView {
   avatar: Uint8Array;
 
 
+  getFullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
 }
