@@ -5,9 +5,11 @@
             <div class="card mb-4 mb-xl-0">
                 <div class="card-header">Zdjęcie Profilowe</div>
                 <div class="card-body text-center">
-                    <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                    <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="http://bootdey.com/img/Content/avatar/avatar1.png">
                     <div class="small font-italic text-muted mb-4">JPG lub PNG nie większe niż 5 MB</div>
-                    <button class="btn btn-primary" type="button" >Załaduj zdjęcie</button>
+                    <input style="display: none" type="file" (change)="onFileChanged($event)" accept="image/png,.jpg"  #fileInput>
+                    <button class= "btn " (click)="fileInput.click()">Wybierz plik</button>
+                    <!-- <button class = "btn " (click)="onUpload()">Wyślij</button> -->
                 </div>
             </div>
         </div>
@@ -55,7 +57,7 @@
                                 <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Podaj datę urodzenia" value="" [(ngModel)]="userInfo.birthday" [ngModelOptions]="{standalone: true}">
                             </div>
                         </div>
-                        <button class="btn btn-primary" type="button" (click)="saveChanges()" >Zapisz zmiany</button>
+                        <button class="btn" style="background-color: aquamarine;" type="button" (click)="saveChanges()" >Zapisz zmiany</button>
                     </form>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { UserView } from 'src/app/models/user-view';
 import { AccountService } from 'src/app/services/account.service';
 import { UserService } from 'src/app/services/user.service';
@@ -10,14 +11,15 @@ import { UserService } from 'src/app/services/user.service';
 })
 
 export class AccountViewComponent implements OnInit {
-  
-  userInfo: UserView = new UserView;
 
+  userInfo: UserView = new UserView;
+  avatar: HTMLImageElement;
 
   editingEnabled: boolean = false;
  
   constructor(
-    private accountService: AccountService 
+    private accountService: AccountService,
+    private sanitizer: DomSanitizer
   ){ }
 
   ngOnInit(){
@@ -39,8 +41,16 @@ export class AccountViewComponent implements OnInit {
       this.userInfo = respone;  
     });
     
+  }
+  onFileChanged(event: any) {
+    this.userInfo.avatar = event.target.files[0];
+    
+  }
+  onUpload() {
+    
+    }
+ 
 
-    } 
 }
   
 

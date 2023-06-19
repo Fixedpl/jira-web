@@ -36,6 +36,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import {NgOptimizedImage} from "@angular/common";
 import { CardProjectComponent } from './components/main/projectlist/card-project/card-project.component';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ImageUploaderComponent } from './components/main/account-view/image-uploader/image-uploader.component';
 
 
 
@@ -52,7 +54,8 @@ import { CardProjectComponent } from './components/main/projectlist/card-project
     ProjectlistComponent,
     ProjectCreationViewComponent,
     AccountViewComponent,
-    CardProjectComponent
+    CardProjectComponent,
+    ImageUploaderComponent
   ],
     imports: [
         BrowserModule,
