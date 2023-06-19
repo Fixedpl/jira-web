@@ -6,4 +6,7 @@ export class UserView {
   firstName: string;
   lastName: string;
 
+  getFullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
 }

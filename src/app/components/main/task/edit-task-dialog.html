@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Dodawanie sprintu</h1>
+<div mat-dialog-content style="padding-top: 10px; margin-left: 30px">
+  <mat-form-field appearance="outline">
+    <mat-label>Tytuł</mat-label>
+    <input matInput [(ngModel)]="title">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Opis</mat-label>
+    <input matInput [(ngModel)]="estimatedTime">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Stan</mat-label>
+    <mat-select placeholder="Stan" [formControl]="statePosition">
+      <mat-option *ngFor="let stateOption of stateOptions" [value]="stateOption">{{ stateOption }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Priorytet</mat-label>
+    <mat-select placeholder="Priorytet" [formControl]="priorityPosition">
+      <mat-option *ngFor="let priorityOption of priorityOptions" [value]="priorityOption">{{ priorityOption }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions style="display: flex; justify-content: end">
+  <button mat-button mat-dialog-close (click)="onAnuluj()">Anuluj</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="onDodaj()">Dodaj</button>
+</div>

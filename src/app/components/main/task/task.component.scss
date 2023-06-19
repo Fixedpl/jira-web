@@ -1,0 +1,92 @@
+.row {
+  display: flex;
+  //justify-content: center;
+  align-items: stretch;
+  min-height: 100%;
+}
+
+.row > div {
+  //border: 1px solid black;
+}
+
+.main-tile {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-tile {
+  //background-color: #aaa6a6;
+  //padding: 10px;
+  margin-bottom: 5px;
+}
+
+.content-tile {
+  background-color: #303030;
+  padding: 10px;
+  flex-grow: 1;
+  margin-bottom: 5px;
+}
+
+.comments-tile {
+  //background-color: #838383;
+  grid-column: span 6;
+}
+
+@media (max-width: 768px) {
+  .comments-tile {
+    grid-column: span 12;
+  }
+}
+
+.example-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: wheat;
+  margin-right: 10px;
+  flex: 0 0 auto;
+}
+
+.mat-card-header {
+  display: flex;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+}
+
+.header-content button {
+  margin-top: auto;
+}
+
+.comments-tile *{
+  color: #f3ffff;
+}
+
+.comments-tile .card.text-dark {
+  background-color: #424242;
+}
+
+.comment-container {
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 0.25px solid #a5a0a0;
+  //margin: 10px 0;
+}
+
+
+.custom-col {
+  padding: 0;
+  margin: 0;
+}
+
