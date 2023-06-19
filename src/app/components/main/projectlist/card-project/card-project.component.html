@@ -1,0 +1,26 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+<!--  start-->
+<div class="col-md-4">
+    <div class="widget lazur-bg p-xl" (click)="redirectToProject()">
+      <h2 class="project-name">{{project.name}}</h2>
+      <ul class="list-unstyled m-t-md">
+        <li>
+          <div class="mb-2 progress" style="height: 12px;" style="background-color: lightgray;"  >
+            <div class="progress-bar progress-bar-striped progress-bar-danger" role="progressbar" style="background-color: rgb(16, 47, 184);" attr.aria-valuenow ="{{project.progresTask}}"  aria-valuemin="0" aria-valuemax="100"style="width: {{project.progresTask}}%;"></div>
+          </div>
+        </li>
+        <li>
+
+          <div class="card-task">Ukończone taski: <span class="text-inverse">{{project.completedTasks}}</span></div>
+        </li> 
+        <li>
+          <div class="card-task">Wszystkie taski: <span class="text-inverse">{{project.totalTasks}}</span></div>
+        </li>
+        <li>
+
+        </li>
+      </ul>
+    </div>
+  </div>
