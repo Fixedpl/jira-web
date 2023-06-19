@@ -35,6 +35,7 @@ import { AccountViewComponent } from './components/main/account-view/account-vie
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import {NgOptimizedImage} from "@angular/common";
+import { CardProjectComponent } from './components/main/projectlist/card-project/card-project.component';
 
 
 
@@ -50,7 +51,8 @@ import {NgOptimizedImage} from "@angular/common";
     SidenavComponent,
     ProjectlistComponent,
     ProjectCreationViewComponent,
-    AccountViewComponent
+    AccountViewComponent,
+    CardProjectComponent
   ],
     imports: [
         BrowserModule,
