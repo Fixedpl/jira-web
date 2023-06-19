@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
@@ -35,8 +36,13 @@ import { AccountViewComponent } from './components/main/account-view/account-vie
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import {NgOptimizedImage} from "@angular/common";
-
-
+import { TaskComponent } from './components/main/task/task.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { CommentService } from './services/comment.service';
+import { TooltipPosition } from '@angular/material/tooltip';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import { CommonModule } from '@angular/common'
 
 @NgModule({
   declarations: [
@@ -50,7 +56,9 @@ import {NgOptimizedImage} from "@angular/common";
     SidenavComponent,
     ProjectlistComponent,
     ProjectCreationViewComponent,
-    AccountViewComponent
+    AccountViewComponent,
+    TaskComponent,
+    CommentComponent
   ],
     imports: [
         BrowserModule,
@@ -71,14 +79,18 @@ import {NgOptimizedImage} from "@angular/common";
         MatTooltipModule,
         MatDialogModule,
         MatDividerModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+        ReactiveFormsModule,
+        MatSelectModule,
+        CommonModule
     ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     AuthService ,
     AuthGuard,
     ProjectService,
-    SprintService
+    SprintService,
+    CommentService
   ],
   bootstrap: [AppComponent], schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
