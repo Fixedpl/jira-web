@@ -7,6 +7,7 @@ import { ProjectCreationViewComponent } from './components/main/project-creation
 import { ProjectlistComponent } from './components/main/projectlist/projectlist.component';
 import { MainComponent } from './components/main/main.component';
 import { TaskComponent } from './components/main/task/task.component';
+import { KanbanComponent } from './components/main/kanban/kanban.component';
 
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
     { path: 'create-project', component: ProjectCreationViewComponent },
     { path: 'sprint/:id', component: MainComponent },
     { path: 'task/:id', component: TaskComponent},
+    { path: 'kanban', component: KanbanComponent},
   ]},
   
 ];

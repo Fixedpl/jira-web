@@ -1,0 +1,55 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <div style="background: #303030; height: 93vh;" class="col-md-3">
+        <div>
+          <mat-card class="mt-3">
+            <form [formGroup]="todoForm">
+              <mat-form-field appearance="outline">
+                <mat-label>Task Name</mat-label>
+                <input formControlName="item" matInput>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Add task name</mat-hint>
+              </mat-form-field>
+              <br>
+              <button *ngIf="!isEditEnabled" (click)="addTask()" mat-raised-button [disabled]="todoForm.invalid" color="primary">Add</button>
+              <button *ngIf="isEditEnabled" (click)="updateTask()" mat-raised-button [disabled]="todoForm.invalid" color="primary">Update</button>
+            </form>
+          </mat-card>
+        </div>
+      </div>
+      <div class="col-md-9 mt-3">
+        <div cdkDropListGroup>
+          <div class="row">
+            <div class="col-md-4" *ngFor="let column of columns">
+              <div class="example-container">
+                <h2 class="head-title">{{ column.state }} <span *ngIf="column.tasks.length > 0"> - {{ column.tasks.length }}</span></h2>
+                <div cdkDropList [cdkDropListData]="column.tasks" class="example-list" (cdkDropListDropped)="drop($event)">
+                  <div class="example-box" *ngFor="let item of column.tasks; let i = index" cdkDrag>{{ item.description }}
+                    <div class="box">
+                      <button mat-icon-button color="warn" (click)="deleteTask(i)"><mat-icon>delete</mat-icon></button>
+                      <button mat-icon-button color="primary" (click)="onEdit(item, i)"><mat-icon>edit</mat-icon></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <mat-card class="example-card col-md-3">
+    <mat-card-header>
+      <mat-card-title>Title</mat-card-title>
+      <mat-card-subtitle>Nazwa sprintu</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>asdinasdj</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button matToolTip="Dodaj" mat-button>Edit task</button>
+    </mat-card-actions>
+  </mat-card>
+

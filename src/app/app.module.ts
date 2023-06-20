@@ -42,7 +42,10 @@ import { CommentService } from './services/comment.service';
 import { TooltipPosition } from '@angular/material/tooltip';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
-import { CommonModule } from '@angular/common'
+import { CommonModule } from '@angular/common';
+import { KanbanComponent } from './components/main/kanban/kanban.component';
+import { KanbanModule } from '@syncfusion/ej2-angular-kanban'
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,8 @@ import { CommonModule } from '@angular/common'
     ProjectCreationViewComponent,
     AccountViewComponent,
     TaskComponent,
-    CommentComponent
+    CommentComponent,
+    KanbanComponent
   ],
     imports: [
         BrowserModule,
@@ -82,7 +86,9 @@ import { CommonModule } from '@angular/common'
         NgOptimizedImage,
         ReactiveFormsModule,
         MatSelectModule,
-        CommonModule
+        CommonModule,
+        KanbanModule,
+        DragDropModule
     ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
