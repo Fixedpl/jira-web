@@ -11,23 +11,12 @@ import { AuthService } from 'src/app/auth/auth-service';
 })
 export class SidenavComponent implements OnInit {
 
-  @ViewChild('sidenav',{static: true}) sidenav: MatSidenav;
-  toggleSidenav(): void {
-    this.sidenav.toggle();
-  }
-
-  nameOfProject: string;
+  sidenavHidden: boolean = false;
 
   constructor(private authService: AuthService, private router: Router, private http: HttpClient){}
 
   ngOnInit(): void {
-    //this.getNavDate();
-  }
-
-  getNavDate(): void {
 
   }
-  performAction() {
-       
-    }
+
 }

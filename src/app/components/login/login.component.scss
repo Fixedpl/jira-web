@@ -1,8 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
+.login-container {
+  background-image: url("/assets/background.jpg");
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .login-card {
-    max-width: 500px;
-  }
+  max-width: 500px;
+  box-shadow: 0 0 5px black;
+}
 
 .logo-container {
   display: flex;
@@ -18,27 +29,25 @@
   margin: 40px 0;
 }
 
-  .header-image {
-    background-size: cover;
-  }
-  .center-content {
-      margin-top: 100px;
-      text-align: -webkit-center;
-  }
-  .form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
+.header-image {
+  background-size: cover;
+}
 
-  .full-width {
-    margin-top: 10px;
-    width: 100%;
-  }
-  .mat-button{
-      margin-top: 10px;
-    width: 100%;
-    color: white;
-    height: 40px;
-    background-color: #3F51B5;
-  }
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.full-width {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.mat-button {
+  margin-top: 10px;
+  width: 100%;
+  color: white;
+  height: 40px;
+  background-color: #3F51B5;
+}
