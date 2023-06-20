@@ -11,42 +11,13 @@ import { CardProject } from 'src/app/models/card-project';
 })
 export class ProjectlistComponent implements OnInit{
 
-  constructor(private router: Router, private http: HttpClient){
+  
+  constructor(private router: Router, private http: HttpClient, private projectService: ProjectService){
   }
 
   @Input() title: string;
-  projectService : ProjectService;
-  projects: CardProject[] = [
-    {
-      id: 1,
-      name: 'Nazwa Projektu 1',
-      completedTasks: 10,
-      totalTasks: 100,
-      progresTask: 0
-    },
-    {
-      id: 2,
-      name: 'Pacman sztywny',
-      completedTasks: 45,
-      totalTasks: 56,
-      progresTask: 0
-    },
-    {
-      id: 3,
-      name: 'Nazwa Projektu 3',
-      completedTasks: 36,
-      totalTasks: 76,
-      progresTask: 0
-    },
-    {
-      id: 4,
-      name: 'Nazwa Projektu 4',
-      completedTasks: 11,
-      totalTasks: 32,
-      progresTask: 0
-    }
-
-  ];
+  projects: CardProject[];
+    
 
   ngOnInit() {
     this.checkUserProjects();
@@ -54,10 +25,38 @@ export class ProjectlistComponent implements OnInit{
   }
 
   checkUserProjects(): void {
-    //this.projectItems = this.projectService.checkUserProjects();
+    this.projectService.getProjectCards();
   }
 
   goToCreationProject() {
     this.router.navigate(['/dashboard/create-project']);
   }
 }
+
+//   id: 1,
+//   name: 'Nazwa Projektu 1',
+//   completedTasks: 10,
+//   totalTasks: 100,
+//   progresTask: 0
+// },
+// {
+//   id: 2,
+//   name: 'Pacman sztywny',
+//   completedTasks: 45,
+//   totalTasks: 56,
+//   progresTask: 0
+// },
+// {
+//   id: 3,
+//   name: 'Nazwa Projektu 3',
+//   completedTasks: 36,
+//   totalTasks: 76,
+//   progresTask: 0
+// },
+// {
+//   id: 4,
+//   name: 'Nazwa Projektu 4',
+//   completedTasks: 11,
+//   totalTasks: 32,
+//   progresTask: 0
+// }

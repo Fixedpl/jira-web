@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { UserView } from '../models/user-view';
+import { ImageModel } from '../models/image';
 
 @Injectable({
   providedIn: 'root'
@@ -18,4 +19,16 @@ export class AccountService {
   updateUser(userView: UserView): Observable<void> {
     return this.http.post<void>(this.BASE_PATH + 'user',userView);  
   }
+  updateUserAvatar(formData:FormData) {
+    return this.http.post(this.BASE_PATH + 'user/avatar', formData).subscribe(          
+      (response) =>console.log(response),   
+      (error) =>console.log(error)  
+    )}
+  
+  getAvatar(): Observable<ImageModel> {
+    return this.http.get<ImageModel>('api/v1/image/get/dora.jpg');
+  }
 }
+  
+  
+
