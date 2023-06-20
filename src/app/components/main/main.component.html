@@ -1,25 +1,38 @@
-<header>
-  <div class="logo-container" (click)="onLogoPressed()">
-    <img src="/assets/logo.svg" width="48px" height="48px">
-    Jira
-  </div>
+<div class="main-container">
+  <header class="menu-navbar-container">
+    <div class="logo-container" (click)="onLogoPressed()">
+      <img src="/assets/logo.svg" width="48px" height="48px">
+      Jira
+    </div>
 
     <nav>
-        <ul class="nav__links">
-            <li><a routerLink="projects">Projekty</a></li>
-            <li><a routerLink="board">Tablica</a></li>
-            <li><a routerLink="create-project">Utwórz projekt</a></li>
-        </ul>
+      <ul class="menu-links">
+            <li><a routerLink="/dashboard">Projekty</a></li>
+        <li><a routerLink="board">Tablica</a></li>
+        <li><a routerLink="create-project">Utwórz projekt</a></li>
+            <li><a routerLink="account-view">Profil</a></li>
+      </ul>
     </nav>
-    <a class="cta" href="#">Kontakt</a>
-    <p class="menu cta">Menu</p>
-</header>
-<div class="overlay">
-    <a class="close">&times;</a>
-    <div class="overlay__content">
-        <a routerLink="projects">Projekty</a>
-        <a routerLink="board">Tablica</a>
-        <a routerLink="create-project" >Utwórz projekt</a>
+    <div class="right-navbar">
+      <div class="profile">
+        <div class="name-and-email">
+          <div class="name">
+            Bogdan
+          </div>
+          <div class="email">
+            bogdan.kajdanki@gmail.com
+          </div>
+
+        </div>
+        <img src='https://www.w3schools.com/w3css/img_avatar3.png' class="bg employee-bar-item circle"
+             style="width:50px">
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </div>
+      <mat-icon class="icon" matTooltip="Wyloguj" (click)="onLogoutPressed()">logout</mat-icon>
     </div>
+  </header>
+  <div class="splitter"></div>
+  <div class="sidenav">
+    <app-sidenav></app-sidenav>
+  </div>
 </div>
-<app-sidenav></app-sidenav>

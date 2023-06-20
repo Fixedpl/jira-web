@@ -36,6 +36,9 @@ import { AccountViewComponent } from './components/main/account-view/account-vie
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import {NgOptimizedImage} from "@angular/common";
+import { CardProjectComponent } from './components/main/projectlist/card-project/card-project.component';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ImageUploaderComponent } from './components/main/account-view/image-uploader/image-uploader.component';
 import { TaskComponent } from './components/main/task/task.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { CommentService } from './services/comment.service';
@@ -60,6 +63,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ProjectlistComponent,
     ProjectCreationViewComponent,
     AccountViewComponent,
+    CardProjectComponent,
+    ImageUploaderComponent,
     TaskComponent,
     CommentComponent,
     KanbanComponent

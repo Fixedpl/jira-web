@@ -1,14 +1,8 @@
-<div class="list-box">
-    <div class="list-box-header">
-      {{ title }}
-    </div>
-    <ul class="list-box-items">
-      <li *ngFor="let item of projectItems" (click)="selectItem(item)" [class.selected]="selectedItem === item.name">
-        {{ item.name }}
-      </li>
-    </ul>
+<div class="projectList">
+  <div class="cards" *ngFor="let project of projects">
+    <app-card-project class="card" [project]="project" ></app-card-project>
   </div>
-  <div class="button-container">
-    <button class="addButton" mat-fab extended (click)="goToCreationProject()"><b><mat-icon>add</mat-icon></b></button>
-  </div>
-  
+</div>
+<div class="button-container">
+  <button class="addButton" mat-fab extended (click)="goToCreationProject()"><b><mat-icon>add</mat-icon></b></button>
+</div>

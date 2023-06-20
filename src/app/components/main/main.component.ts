@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthService} from "../../auth/auth-service";
 
 
 
@@ -10,11 +11,16 @@ import {Router} from "@angular/router";
 })
 export class MainComponent {
 
-  constructor(private router: Router) {
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   onLogoPressed(): void {
     this.router.navigate(['/dashboard']);
+  }
+
+  onLogoutPressed(): void {
+    this.authService.logout();
+    this.router.navigate(['/']);
   }
 
 }
