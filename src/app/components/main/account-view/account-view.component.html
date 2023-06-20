@@ -1,17 +1,66 @@
-<div  class="main-div">
-    <mat-card class="card">
-        <mat-card-header>
-            <div mat-card-avatar>
-              <!--<img src="{{origin}}/api/users/profile-image/{{user.profileImage}}" class="header-image">-->>  
+<div class="container-xl px-4 mt-4">
+    <hr class="mt-0 mb-4">
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header">Zdjęcie Profilowe</div>
+                <div class="card-body text-center">
+                    <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="http://bootdey.com/img/Content/avatar/avatar1.png">
+                    <div class="small font-italic text-muted mb-4">JPG lub PNG nie większe niż 5 MB</div>
+                    <input style="display: none" type="file" (change)="onFileChanged($event)" accept="image/png,.jpg"  #fileInput>
+                    <button class= "btn " (click)="fileInput.click()">Wybierz plik</button>
+                    <!-- <button class = "btn " (click)="onUpload()">Wyślij</button> -->
+                </div>
             </div>
-            <mat-card-title>{{user.name}}</mat-card-title>
-            <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <p>Username: {{user.username}}</p>
-            <p>Role: {{user.role}}</p>
-            <h2>Blog Entries of {{user.username}}</h2>
-            <app-all-blog-entries></app-all-blog-entries>
-        </mat-card-content>
-    </mat-card>
+        </div>
+        <div class="col-xl-8">
+            <div class="card mb-4">
+                <div class="card-header">Profil</div>
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputUsername" >Nazwa Użytkownika (Nazwa, którą będą widzieć inni użytkownicy)</label>
+                            <input class="form-control" id="inputUsername" type="text" placeholder="Podaj nazwę użytkownika" value="" [(ngModel)]="userInfo.username" [ngModelOptions]="{standalone: true}" required>
+                           
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">Imię</label>
+                                <input class="form-control" id="inputFirstName" type="text" placeholder="Podaj imię" value="" [(ngModel)]="userInfo.firstName" [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLastName">Nazwisko</label>
+                                <input class="form-control" id="inputLastName" type="text" placeholder="Podaj nazwisko" value="" [(ngModel)]="userInfo.lastName" [ngModelOptions]="{standalone: true}">
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputOrgName">Nazwa organizacji</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Podaj nazwę organizacji" value="" [(ngModel)]="userInfo.organizationName" [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLocation">Lokalizacja</label>
+                                <input class="form-control" id="inputLocation" type="text" placeholder="Podaj lokalizację" value="" [(ngModel)]="userInfo.location" [ngModelOptions]="{standalone: true}">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputEmailAddress">Adres mailowy</label>
+                            <input class="form-control" id="inputEmailAddress" type="email" placeholder="Zmień adres mailowy" value="" [(ngModel)]="userInfo.email" [ngModelOptions]="{standalone: true}" disabled="true">
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputPhone">Numer telefonu</label>
+                                <input class="form-control" id="inputPhone" type="tel" placeholder="Podaj numer telefonu" value="" [(ngModel)]="userInfo.phoneNumber" [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputBirthday">Data urodzenia</label>
+                                <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Podaj datę urodzenia" value="" [(ngModel)]="userInfo.birthday" [ngModelOptions]="{standalone: true}">
+                            </div>
+                        </div>
+                        <button class="btn" style="background-color: aquamarine;" type="button" (click)="saveChanges()" >Zapisz zmiany</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

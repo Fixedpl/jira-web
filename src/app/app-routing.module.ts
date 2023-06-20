@@ -6,6 +6,8 @@ import { ProjectViewComponent } from './components/project-view/project-view.com
 import { ProjectCreationViewComponent } from './components/main/project-creation-view/project-creation-view.component';
 import { ProjectlistComponent } from './components/main/projectlist/projectlist.component';
 import { MainComponent } from './components/main/main.component';
+import { AccountViewComponent } from './components/main/account-view/account-view.component';
+import { TaskComponent } from './components/main/task/task.component';
 
 
 
@@ -14,8 +16,10 @@ const routes: Routes = [
   { path: 'dashboard', component: MainComponent, canActivate: [AuthGuard], children: [
     { path: '', component: ProjectlistComponent },
     { path: 'project/:id', component: ProjectViewComponent },
-    { path: 'create-project', component: ProjectCreationViewComponent },
-    { path: 'sprint/:id', component: MainComponent }
+    { path: 'create-project', component: ProjectCreationViewComponent, canActivate: [AuthGuard]},
+    { path: 'account-view', component: AccountViewComponent, canActivate: [AuthGuard]},
+    { path: 'sprint/:id', component: MainComponent },
+    { path: 'task/:id', component: TaskComponent},
   ]},
   
 ];

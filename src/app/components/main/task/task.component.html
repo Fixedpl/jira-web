@@ -1,0 +1,125 @@
+<div class="row">
+  <div class="col-md-8 main-tile">
+    <div class="title-tile">
+        <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>{{ task.title }}</mat-card-title>
+              <mat-card-subtitle>Nazwa sprintu</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ task.description }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button matToolTip="Dodaj" (click)="openEditSprintComponent('250ms', '0ms')" mat-button>Edit task</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+    <div class="content-tile">
+      <h2>Opis zadania:</h2>
+      <hr/>
+      {{ task.description }}
+    </div>
+    <div class="comments-tile">
+      <div class="container" style="max-height: 400px; overflow-y: auto;">
+        <div class="row justify-content-center">
+          <div class="col-12 custom-col">
+            <div class="card text-dark">
+              <div class="card-body p-4">
+                <h4 class="mb-0">Recent comments</h4>
+                <!-- <div class="d-flex align-items-center mb-4 pb-2">
+                  <p style="color: #c7c7c7;" class="fw-light mb-0">Latest Comments section by users</p>
+                  <button type="button" class="btn btn-info ms-auto">Add comment</button>
+                </div> -->
+                <p style="color: #c7c7c7;" class="fw-light mb-4 pb-2 ">Latest Comments section by users</p>
+    
+                <div *ngFor="let comment of commentsTask" class="d-flex flex-start comment-container">
+                  <img class="rounded-circle shadow-1-strong me-3"
+                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(23).webp" alt="avatar" width="60"
+                    height="60" />
+                  <div>
+                    <h6 class="fw-bold mb-2">{{ comment.createdBy }}</h6>
+                    <div class="d-flex align-items-center mb-3">
+                      <p style="color: #c7c7c7;" class="mb-0">
+                        <ng-container *ngIf="isDateEqual(comment.createdDate, comment.lastModifiedDate)">
+                          {{ comment.createdDate | date: 'yyyy-MM-dd HH:mm' }}
+                          <span class="badge bg-success">New</span>
+                        </ng-container>
+                        <ng-container *ngIf="!isDateEqual(comment.createdDate, comment.lastModifiedDate)">
+                          {{ comment.lastModifiedDate | date: 'yyyy-MM-dd HH:mm' }}
+                          <span class="badge bg-primary">Edited</span>
+                        </ng-container>
+                      </p>
+                      
+                      <a href="#!" class="link-muted"><i class="fas fa-pencil-alt ms-2"></i></a>
+                      <a href="#!" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>
+                      <a href="#!" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
+                    </div>
+                    <p class="mb-0">
+                      {{ comment.content }}
+                  </div>
+                </div>
+
+                <form class="mt-4">
+                  <div class="mb-3">
+                    <label for="commentInput" class="form-label">Add comment</label>
+                    <textarea class="form-control" id="commentInput" rows="3" style="resize: none;background-color: #303030;"></textarea>
+                  </div>
+                  <button type="button" class="btn btn-primary" (click)="addComment()">Submit</button>
+                </form>
+                
+                
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="col-md-4 main-tile">
+    <!-- <mat-card class="example-card">
+      <mat-card-header>
+        <div class="header-avatar reporter-image"></div>
+        <mat-card-title>
+          <div class="header-content">
+            <div>Reporter:</div>
+            <mat-card-subtitle>{{ task.reporter }}</mat-card-subtitle>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-header>
+        <div class="header-avatar assigned-user-image"></div>
+        <mat-card-title>
+          <div class="header-content">
+            <div>Assigned:</div>
+            <mat-card-subtitle>{{ task.assigned }}</mat-card-subtitle>
+            <button mat-button>Przypisz innego użytkownika</button>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+    </mat-card> -->
+    <section>
+      <div class="row">
+        <div class="col-12">
+          <h2>Reporter</h2>
+          <div class="d-flex align-items-center">
+            <p>Username: {{ reporter.email }}</p>
+            <b-avatar class="mr-2 header-avatar"></b-avatar>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h2>Assigned</h2>
+          <div class="d-flex align-items-center">
+            <p>Username: {{ assigned.email }}</p>
+            <b-avatar class="mr-2 header-avatar"></b-avatar>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+  
+</div>
