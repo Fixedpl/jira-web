@@ -1,53 +1,84 @@
-mat-sidenav-container {
-    height: 100vh;
-    
-  }
-  
-  mat-sidenav {
-    width: 250px;
-    background-color: #24252a;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  mat-sidenav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  mat-sidenav li {
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
-  
-  mat-sidenav a {
-    text-decoration: none;
-    color:white;
-  }
-  
-  mat-sidenav a:hover {
-    color: #333;
-  }
-  
-  mat-sidenav-content {
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  mat-icon {
-    vertical-align: middle;
-  }
-  mat-sidenav-container button{
-      background-color: #333;
-      display: block;
-      margin:  auto;
-      top: 30px;
-  }
-  mat-sidenav-container b{
-    color: white;
-    --font-size: 30px;
-    --justify-content: center;
-    
-  }
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
-  
+.sidenav-container {
+  height: 100%;
+}
+
+mat-sidenav li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+mat-sidenav a {
+  text-decoration: none;
+  color: white;
+}
+
+mat-sidenav-content {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 15rem;
+  height: 100%;
+  background-color: #24252a;
+  padding: 20px 30px;
+  box-sizing: border-box;
+}
+
+.navbar a:hover {
+  color: aquamarine;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-item {
+  width: 100%;
+  font-family: 'Roboto Slab', serif;
+  font-size: 16px;
+}
+
+.nav-item:last-child {
+  margin-top: auto;
+  text-align: right;
+}
+
+.splitter {
+  padding: 0.1%;
+  background-color: aquamarine;
+  box-shadow: 0 0 20px aquamarine;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.nav-item:last-child:hover {
+  color: aquamarine;
+  transition: color 0.3s ease 0s;
+  border-width: 5px;
+  border-color: black;
+  padding-top: 5px;
+}
+
+.nav-link {
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  filter: grayscale(100%);
+}
+
+.nav-link:hover {
+  filter: grayscale(0%);
+}
+
+.nav-text {
+  padding-left: 15px;
+}

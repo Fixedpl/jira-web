@@ -1,11 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
+.main-container {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .menu-navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 5%;
+    padding: 0 5%;
     background-color: #24252a;
+    height: 13vh;
+}
+
+.splitter {
+  padding: 0.1vh;
+  background-color: aquamarine;
+  box-shadow: 0 0 20px aquamarine;
+}
+
+.sidenav {
+  height: 86.8vh;
 }
 
 .logo-container {
@@ -44,6 +62,7 @@
   box-shadow: 0 0 3px white;
   cursor: pointer;
   color: aquamarine;
+  transition: color 0.3s ease 0s;
 }
 
 .name-and-email {
@@ -77,6 +96,7 @@
   border-radius: 15px;
   box-shadow: 0 0 3px lightgray;
   color: aquamarine;
+  transition: color 0.3s ease 0s;
 }
 
 .bg:hover {
@@ -87,28 +107,30 @@
   border-radius:50%;
 }
 
-  .nav__links a {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    color: #edf0f1;
-    text-decoration: none;
-    font-size: 20px;
-  }
+.menu-links a {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 500;
+  color: #edf0f1;
+  text-decoration: none;
+  font-size: 22px;
+}
 
-  .nav__links {
-    list-style: none;
-    display: flex;
-  }
+.menu-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
 
-  .nav__links li {
-    padding: 0px 20px;
-  }
+.menu-links li {
+  padding: 0px 20px;
+}
 
-  .nav__links li a {
-    transition: color 0.3s ease 0s;
-  }
+.menu-links li a {
+  transition: color 0.3s ease 0s;
+}
 
-  .nav__links li a:hover {
-    color: #0088a9;
-  }
-
+.menu-links li a:hover {
+  color: aquamarine;
+}

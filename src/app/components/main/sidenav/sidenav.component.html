@@ -1,22 +1,37 @@
-<mat-sidenav-container>
-    <mat-sidenav #sidenav mode="side" opened="true">
-      <!-- Zawartość SideNav -->
-      <ul>
-        <li><a routerLink="dashboard">Strona główna</a></li>
-        <li><a routerLink="/">Backlog</a></li>
-        <li><a routerLink="/about">Aktywne sprinty</a></li>
-        <li><a routerLink="/contact">{{this.nameOfProject}}</a></li>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened="true" class="navbar" [style.width]="sidenavHidden ? '6rem' : '15rem'">
+    <!-- Zawartość SideNav -->
+    <ul class="navbar-nav">
+      <li class="nav-item"><a routerLink="dashboard" class="nav-link">
+        <img matTooltip="Strona główna" src="/assets/logo.svg" width="32px" height="32px">
+        <div class="nav-text" [style.display]="sidenavHidden ? 'none' : 'inline'">
+          Strona główna
+        </div>
+      </a></li>
+      <li class="nav-item"><a routerLink="/" class="nav-link">
+        <mat-icon matTooltip="Backlog" style="font-size: 32px; width: 32px; height: 32px">book</mat-icon>
+        <div class="nav-text" [style.display]="sidenavHidden ? 'none' : 'inline'">
+          Backlog
+        </div>
+      </a></li>
 
-      </ul>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <!--<div *ngIf="current == 'default'"  > 
-        <app-projectlist [title]="'Kolor'" [items]="['Czerwony', 'Niebieski', 'Zielony', 'Żółty']"></app-projectlist>
-        <button mat-fab extended (click)="(current = 'project-creation')"><b><mat-icon>add</mat-icon></b></button>
-      </div>  
-      <div *ngIf="current == 'project-creation'"  > 
-        <app-project-creation-view/>
-      </div>-->
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+      <li class="nav-item"><a routerLink="/about" class="nav-link">
+        <mat-icon matTooltip="Aktywne sprinty" style="font-size: 32px; width: 32px; height: 32px">flag</mat-icon>
+        <div class="nav-text" [style.display]="sidenavHidden ? 'none' : 'inline'">
+          Aktywne sprinty
+        </div>
+      </a></li>
+
+      <li class="nav-item" (click)="sidenavHidden = !sidenavHidden">
+        <div class="splitter"></div>
+        <mat-icon class="hider" style="font-size: 32px; width: 35px; height: 35px">
+          {{ sidenavHidden ? '>>' : '<<' }}<<
+        </mat-icon>
+      </li>
+
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

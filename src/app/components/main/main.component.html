@@ -1,15 +1,16 @@
-<header class="menu-navbar-container">
-  <div class="logo-container" (click)="onLogoPressed()">
-    <img src="/assets/logo.svg" width="48px" height="48px">
-    Jira
-  </div>
+<div class="main-container">
+  <header class="menu-navbar-container">
+    <div class="logo-container" (click)="onLogoPressed()">
+      <img src="/assets/logo.svg" width="48px" height="48px">
+      Jira
+    </div>
 
     <nav>
-        <ul class="nav__links">
-            <li><a routerLink="projects">Projekty</a></li>
-            <li><a routerLink="board">Tablica</a></li>
-            <li><a routerLink="create-project">Utwórz projekt</a></li>
-        </ul>
+      <ul class="menu-links">
+        <li><a routerLink="projects">Projekty</a></li>
+        <li><a routerLink="board">Tablica</a></li>
+        <li><a routerLink="create-project">Utwórz projekt</a></li>
+      </ul>
     </nav>
     <div class="right-navbar">
       <div class="profile">
@@ -22,10 +23,15 @@
           </div>
 
         </div>
-        <img src='https://www.w3schools.com/w3css/img_avatar3.png' class="bg employee-bar-item circle" style="width:50px">
+        <img src='https://www.w3schools.com/w3css/img_avatar3.png' class="bg employee-bar-item circle"
+             style="width:50px">
         <mat-icon>keyboard_arrow_down</mat-icon>
       </div>
-      <mat-icon class="icon" matTooltip="Wyloguj">logout</mat-icon>
+      <mat-icon class="icon" matTooltip="Wyloguj" (click)="onLogoutPressed()">logout</mat-icon>
     </div>
-</header>
-<app-sidenav></app-sidenav>
+  </header>
+  <div class="splitter"></div>
+  <div class="sidenav">
+    <app-sidenav></app-sidenav>
+  </div>
+</div>
