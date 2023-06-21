@@ -11,7 +11,7 @@ export class UserView {
   birthday: string = '13 July 1983';
   email: string = 'jp2137@kremowki.com';
   phoneNumber: string = '88 (02) 123456';
-  avatar: Uint8Array;
+  avatar: string;
 
 
   getFullName(): string {
