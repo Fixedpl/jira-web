@@ -65,7 +65,7 @@ export class SprintListComponent implements OnChanges{
     if(!projectId) {
       return;
     }
-    this.sprintService.getSprints(projectId).subscribe(sprints => {
+      this.sprintService.getSprints(projectId).subscribe(sprints => {
       this.activeSprint = sprints.find(sprint => sprint.active);
       this.plannedSprints = sprints.filter(sprint => sprint.actualEndDate === null && !sprint.active);
       this.finishedSprints = sprints.filter(sprint => sprint.actualEndDate !== null && !sprint.active);

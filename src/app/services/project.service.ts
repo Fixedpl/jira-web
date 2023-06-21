@@ -2,11 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Project } from '../models/project';
 import { Observable } from 'rxjs';
+import { CardProject } from '../models/card-project';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
+  
 
   BASE_PATH: string = 'api/v1/project/';
 
@@ -23,5 +25,9 @@ export class ProjectService {
   createProject(project: Project) {
     return this.http.post(this.BASE_PATH + '/create', project);
   }
-
+ 
 }
+
+// getProjectCards(): Observable<CardProject[]> {
+//   return this.http.get<CardProject[]>(this.BASE_PATH );
+// }
