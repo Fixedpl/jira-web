@@ -1,3 +1,25 @@
+.row {
+    // display: flex;
+    // flex-wrap: wrap;
+    width: 100%;
+}
+
+.col-md-9 {
+    width: 100%;
+}
+
+.col-md-4 {
+    width: 100%;
+    padding: 5px;
+}
+
+.cdkDrop {
+    width: 100%;
+}
+.row-col {
+    grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+    display: grid;
+}
 :host .mat-form-field {
     width: 100%;
   }
@@ -5,7 +27,7 @@
   .example-container {
     width: 400px;
     max-width: 100%;
-    margin: 0 25px 25px 0;
+    //margin: 0 25px 25px 0;
     display: inline-block;
     vertical-align: top;
   }
@@ -23,14 +45,15 @@
     padding: 20px 10px;
     border-bottom: solid 1px #ccc;
     color: rgba(0, 0, 0, 0.87);
-    display: flex;
+    display: block;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
     cursor: move;
-    background: white;
+    background: lightgrey;
     font-size: 14px;
+    text-align: center;
   }
   
   .cdk-drag-preview {
@@ -66,14 +89,32 @@
   .head-title {
     margin: 0;
     padding: 10px;
-    background-color: #d90427;
+    background-color: aquamarine;
     border-radius: 4px;
-    color: whitesmoke;
     font-size: 1.3rem;
     font-weight: 500;
+    color: black;
+    text-align: center;
   
     span {
       font-weight: normal;
     }
   }
+
+.formDiv {
+    
+}
+.connectDiv {
+    display: flex;
+    flex-direction: row;
+}
+.smallDiv {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+.bigDiv {
+    //width: 100%;
+}
   

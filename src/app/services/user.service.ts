@@ -13,6 +13,10 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  gerCurrentUser(): Observable<User> {
+    return this.http.get<User>(this.BASE_PATH + '/getUser')
+  }
+
   getById(id: number): Observable<UserView> {
     return this.http.get<UserView>(this.BASE_PATH + id);
   }

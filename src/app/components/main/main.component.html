@@ -14,18 +14,19 @@
       </ul>
     </nav>
     <div class="right-navbar">
-      <div class="profile">
+      <div class="profile" (click)="onProfileClicked()">
         <div class="name-and-email">
           <div class="name">
-            Bogdan
+            {{currentUser.firstName}} {{currentUser.lastName}}
+            
           </div>
           <div class="email">
-            bogdan.kajdanki@gmail.com
+            {{currentUser.email}}
           </div>
 
         </div>
-        <img src='https://www.w3schools.com/w3css/img_avatar3.png' class="bg employee-bar-item circle"
-             style="width:50px">
+        <img src='https://www.w3schools.com/w3css/img_avatar3.png' class="bg employee-bar-item circle" style="width:50px">
+        <!--   -->
         <mat-icon>keyboard_arrow_down</mat-icon>
       </div>
       <mat-icon class="icon" matTooltip="Wyloguj" (click)="onLogoutPressed()">logout</mat-icon>
