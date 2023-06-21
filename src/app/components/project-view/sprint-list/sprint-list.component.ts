@@ -73,7 +73,7 @@ export class SprintListComponent implements OnChanges{
   }
 
   onSprintPressed(sprint: Sprint): void {
-    this.router.navigate(['dashboard/sprint/' + sprint.id]);
+    this.router.navigate(['dashboard/sprint/' + sprint.id + '/kanban']);
   }
 
   openAddSprintDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {

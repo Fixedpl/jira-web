@@ -13,4 +13,5 @@ export class Task {
     state: State;
     priority: Priority;
     sprints: Sprint[];
+    sprintId: number;
 }

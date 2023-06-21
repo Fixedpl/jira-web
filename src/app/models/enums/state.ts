@@ -1,8 +1,8 @@
 export enum State {
-    TO_DO = 'TO DO',
-    IN_PROGRESS = 'IN PROGRESS',
-    CODE_REVIEW = 'CODE REVIEW',
-    READY_FOR_TESTS = 'READY FOR TESTS',
+    TO_DO = 'TO_DO',
+    IN_PROGRESS = 'IN_PROGRESS',
+    CODE_REVIEW = 'CODE_REVIEW',
+    READY_FOR_TESTS = 'READY_FOR_TESTS',
     TESTS = 'TESTS',
     DONE = 'DONE'
   }

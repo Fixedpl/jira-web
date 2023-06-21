@@ -9,6 +9,7 @@ import {User} from "../models/user";
 })
 export class UserService {
 
+
   BASE_PATH: string = 'api/v1/user/';
 
   constructor(private http: HttpClient) { }
@@ -27,6 +28,10 @@ export class UserService {
 
   getProjectMembers(projectId: number): Observable<UserView[]> {
     return this.http.get<UserView[]>(this.BASE_PATH + projectId + '/members');
+  }
+
+  getProjectMembersBySprintId(sprintId: number): Observable<User[]> {
+    return this.http.get<User[]>(this.BASE_PATH + sprintId + '/sprintMembers')
   }
 
   addUserToProject(email: string, projectId: number): Observable<void> {

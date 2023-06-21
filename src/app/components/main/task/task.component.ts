@@ -112,6 +112,21 @@ export class TaskComponent implements OnInit {
       }
     });
   }
+
+  deleteTask(taskId: number) {
+    this.taskService.deleteTaskById(taskId).toPromise()
+    .then(() => {
+      // Przekierowanie na inną stronę po udanym usunięciu
+      this.snackBar.open('Usunięto taska.', 'Zamknij');
+      this.router.navigate(['/dashboard']);
+    })
+    .catch((error) => {
+      // Obsługa błędu
+      console.error('Wystąpił błąd podczas usuwania spotkania:', error);
+      this.snackBar.open('Wystąpił błąd podczas usuwania spotkania.', 'Zamknij');
+    });
+  
+  }
 }
 
 
@@ -160,7 +175,7 @@ export class EditTaskDialog {
     newTask.id = this.taskId;
 
     console.log(this.taskId);
-    this.taskService.addTask(newTask).subscribe({
+    this.taskService.updateTask(newTask).subscribe({
       complete: () => {
         this.snackBar.open('Pomyślnie dodano task');
         this.dialogRef.close(true);
@@ -176,5 +191,4 @@ export class EditTaskDialog {
     console.log(this.stateOptions);
     this.dialogRef.close(null);
   }
-
 }

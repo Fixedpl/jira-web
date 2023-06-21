@@ -21,7 +21,7 @@ const routes: Routes = [
     { path: 'account-view', component: AccountViewComponent, canActivate: [AuthGuard]},
     { path: 'sprint/:id', component: MainComponent },
     { path: 'task/:id', component: TaskComponent},
-    { path: 'kanban', component: KanbanComponent},
+    { path: 'sprint/:sprintId/kanban', component: KanbanComponent},
   ]},
   
 ];
