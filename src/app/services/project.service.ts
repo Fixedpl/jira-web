@@ -14,10 +14,9 @@ export class ProjectService {
 
   constructor(private http: HttpClient) { }
 
-  getProjectCards(): Observable<CardProject[]> {
-    return this.http.get<CardProject[]>(this.BASE_PATH );
+  getProjects(): Observable<Project[]> {
+    return this.http.get<Project[]>(this.BASE_PATH);
   }
-  
 
   getById(id: number): Observable<Project> {
     return this.http.get<Project>(this.BASE_PATH + id);
@@ -28,6 +27,7 @@ export class ProjectService {
   }
  
 }
-// getProjects(): Observable<Project[]> {
-//   return this.http.get<Project[]>(this.BASE_PATH);
+
+// getProjectCards(): Observable<CardProject[]> {
+//   return this.http.get<CardProject[]>(this.BASE_PATH );
 // }

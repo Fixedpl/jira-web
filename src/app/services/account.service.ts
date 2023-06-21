@@ -20,7 +20,7 @@ export class AccountService {
     return this.http.post<void>(this.BASE_PATH + 'user',userView);  
   }
   updateUserAvatar(formData:FormData) {
-    return this.http.post(this.BASE_PATH + 'user/avatar', formData).subscribe(          
+    return this.http.post('/api/v1/image/upload', formData).subscribe(          
       (response) =>console.log(response),   
       (error) =>console.log(error)  
     )}

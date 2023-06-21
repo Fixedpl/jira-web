@@ -71,7 +71,7 @@ export class AccountViewComponent implements OnInit {
 
   onUpload() {
     const uploadData = new FormData();
-    uploadData.append('myFile', this.selectedFile);
+    uploadData.append('imageFile', this.selectedFile);
     this.accountService.updateUserAvatar(uploadData);
     console.log(this.selectedFile)
     

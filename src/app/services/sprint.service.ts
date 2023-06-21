@@ -15,7 +15,12 @@ export class SprintService {
   getSprints(projectId: number): Observable<Sprint[]> {
     return this.http.get<Sprint[]>(this.BASE_PATH + projectId);
   }
-
+  getCompletedTasks(projectId: number): Observable<number> {
+    return this.http.get<number>(this.BASE_PATH + projectId + '/completedTasks');
+  }
+  getTotalTasks(projectId: number): Observable<number> {
+    return this.http.get<number>(this.BASE_PATH + projectId + '/totalTasks');
+  }
   addSprint(sprint: Sprint): Observable<void> {
     return this.http.post<void>(this.BASE_PATH, sprint);
   }
