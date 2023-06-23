@@ -1,0 +1,80 @@
+<div class="container-fluid">
+    
+    <div style="background: #303030; width: 100%;" class="col-md-3">
+        <div>
+          <mat-card class="mt-3">
+            <form [formGroup]="todoForm" class="formDiv">
+                <div class="connectDiv">
+                    <div class="smallDiv">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Tytuł taska</mat-label>
+                            <input formControlName="title" matInput name="title">
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            <!-- <mat-hint>Add task name</mat-hint> -->
+                          </mat-form-field>
+                          <mat-form-field class="example-user-input">
+                            <mat-label>Priorytet</mat-label>
+                            <mat-select [formControl]="priorityPosition" formControlName="priority">
+                              <mat-option *ngFor="let positionOption of priorityPositionOptions" [value]="positionOption">
+                                {{positionOption}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <mat-form-field class="example-user-input">
+                            <mat-label>Przypisz użytkownika</mat-label>
+                            <mat-select [formControl]="userPosition" formControlName="user">
+                              <mat-option *ngFor="let positionOption of userPositionOptions" [value]="positionOption">
+                                {{positionOption.email}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                    <div class="bigDiv">
+                        <mat-form-field class="description">
+                            <textarea matInput placeholder="Opis projektu" name="projectDescription" formControlName="description"required></textarea>
+                            <mat-error>Opis projektu jest wymagany.</mat-error>
+                          </mat-form-field>
+                    </div>
+                </div>
+
+
+              <br>
+              <button *ngIf="!isEditEnabled" (click)="addTask()" mat-raised-button [disabled]="todoForm.invalid" color="primary">Add</button>
+              <button *ngIf="isEditEnabled" (click)="updateTask()" mat-raised-button [disabled]="todoForm.invalid" color="primary">Update</button>
+            </form>
+          </mat-card>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-9 mt-3">
+        <div cdkDropListGroup class="cdkDrop">
+          <div class="row-col">
+            <div class="col-md-4" *ngFor="let column of columns">
+              <div class="example-container">
+                <h2 class="head-title">{{ column.state }} <span *ngIf="column.tasks.length > 0"> : {{ column.tasks.length }}</span></h2>
+                <div cdkDropList [cdkDropListData]="column.tasks" class="example-list" (cdkDropListDropped)="drop($event)">
+                  <div class="example-box" *ngFor="let item of column.tasks; let i = index" cdkDrag (click)="goTotask(item.id)" style="margin-bottom: 5px; margin-top: 5px;">
+                    {{ item.title }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- <mat-card class="example-card col-md-3">
+    <mat-card-header>
+      <mat-card-title>Title</mat-card-title>
+      <mat-card-subtitle>Nazwa sprintu</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>asdinasdj</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button matToolTip="Dodaj" mat-button>Edit task</button>
+    </mat-card-actions>
+  </mat-card> -->
+

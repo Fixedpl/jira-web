@@ -8,6 +8,7 @@ import { ProjectlistComponent } from './components/main/projectlist/projectlist.
 import { MainComponent } from './components/main/main.component';
 import { AccountViewComponent } from './components/main/account-view/account-view.component';
 import { TaskComponent } from './components/main/task/task.component';
+import { KanbanComponent } from './components/main/kanban/kanban.component';
 
 
 
@@ -20,6 +21,7 @@ const routes: Routes = [
     { path: 'account-view', component: AccountViewComponent, canActivate: [AuthGuard]},
     { path: 'sprint/:id', component: MainComponent },
     { path: 'task/:id', component: TaskComponent},
+    { path: 'sprint/:sprintId/kanban', component: KanbanComponent},
   ]},
   
 ];
