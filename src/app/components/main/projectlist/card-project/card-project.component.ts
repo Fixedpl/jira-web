@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CardProject } from 'src/app/models/card-project';
 import { Route, Router } from '@angular/router';
 import { Project } from 'src/app/models/project';
@@ -9,14 +9,21 @@ import { Project } from 'src/app/models/project';
   styleUrls: ['./card-project.component.scss']
 })
 
-export class CardProjectComponent implements OnInit{
+export class CardProjectComponent implements OnInit, OnChanges {
  
   @Input() project: CardProject;
-  constructor( private router: Router){};
+  constructor( private router: Router){}ngOnChanges(changes: SimpleChanges): void {
+    this.project.progresTask = this.calculateProgress();
+    console.log(this.project.completedTasks);
+  }
+;
 
   ngOnInit(): void {
-    this.project.progresTask = this.calculateProgress();
+    //this.project.progresTask = this.calculateProgress();
+    //console.log(this.project.completedTasks);
   }
+
+  
   calculateProgress(): number {
     return (this.project.completedTasks / this.project.totalTasks) * 100;
   }

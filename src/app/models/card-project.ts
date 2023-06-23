@@ -4,5 +4,4 @@ export class CardProject {
     completedTasks: number;
     totalTasks: number;
     progresTask: number;
-    
 }

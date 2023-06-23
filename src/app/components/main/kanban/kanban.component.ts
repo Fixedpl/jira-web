@@ -17,6 +17,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./kanban.component.scss']
 })
 export class KanbanComponent implements OnInit {
+onDrop() {
+console.log("DROP");
+}
 
   todoForm!: FormGroup;
   columns: { state: State; tasks: Task[] }[] = [];
@@ -130,10 +133,34 @@ export class KanbanComponent implements OnInit {
     this.columns[this.columns.length - 1].tasks.splice(i, 1);
   }
 
+  // drop(event: CdkDragDrop<Task[]>) {
+  //   //console.log(event.container.data[]);
+  //   if (event.previousContainer === event.container) {
+  //     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+  //   } else {
+  //     transferArrayItem(
+  //       event.previousContainer.data,
+  //       event.container.data,
+  //       event.previousIndex,
+  //       event.currentIndex
+  //     );
+  //   }
+  // }
+
   drop(event: CdkDragDrop<Task[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
+      //TODO: State change after task drop
+      // const droppedTask: Task = event.previousContainer.data[event.previousIndex];
+      // //const droppedState = event.container.data[event.currentIndex].state;
+      // console.log(event.currentIndex);
+      // //droppedTask.state = this.columns[event.currentIndex].state;
+      
+      // this.taskService.updateTaskState(droppedTask.id, droppedTask.state, droppedTask).subscribe(res => {
+        
+      // });
+
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
@@ -142,6 +169,7 @@ export class KanbanComponent implements OnInit {
       );
     }
   }
+  
 
   initializeColumns() {
     const states = Object.values(State);

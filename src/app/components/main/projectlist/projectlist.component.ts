@@ -6,6 +6,7 @@ import { CardProject } from 'src/app/models/card-project';
 import { Project } from 'src/app/models/project';
 import { SprintService } from 'src/app/services/sprint.service';
 import { Sprint } from 'src/app/models/sprint';
+import { forkJoin, map } from 'rxjs';
 
 @Component({
   selector: 'app-projectlist',
@@ -30,32 +31,30 @@ export class ProjectlistComponent implements OnInit{
   }
 
   checkUserProjects(): void {
-    this.projectService.getProjects().subscribe( res =>{
-        this.projects = res;
-        this.projectCards = [];
-        for(let i=0; i<this.projects.length; i++){
-          this.projectCards[i] = new CardProject();
-          this.projectCards[i].name = this.projects[i].name;
-          this.projectCards[i].id = this.projects[i].id;
-          console.log(this.projectCards[i].name)
-          this.sprintService.getCompletedTasks(this.projectCards[i].id).subscribe( res =>{
-              if(res){
-                this.projectCards[i].completedTasks = res;
-              }else{
-                this.projectCards[i].completedTasks = 0;
-              }
-          });
-          this.sprintService.getTotalTasks(this.projectCards[i].id).subscribe( res =>{
-            if(res){
-              this.projectCards[i].totalTasks = res;
-            }else{
-              this.projectCards[i].totalTasks = 0;
-            }
-        });
-        console.log("projects" + this.projectCards)
-        }
+    this.projectService.getProjects().subscribe(res => {
+      this.projects = res;
+      this.projectCards = [];
+
+      const projectObservables = this.projects.map(project => {
+        const cardProject = new CardProject();
+        cardProject.name = project.name;
+        cardProject.id = project.id;
+        return forkJoin([
+          this.sprintService.getCompletedTasks(cardProject.id),
+          this.sprintService.getTotalTasks(cardProject.id)
+        ]).pipe(
+          map(([completedTasks, totalTasks]) => {
+            cardProject.completedTasks = completedTasks || 0;
+            cardProject.totalTasks = totalTasks || 0;
+            return cardProject;
+          })
+        );
+      });
+
+      forkJoin(projectObservables).subscribe(projectCards => {
+        this.projectCards = projectCards;
+      });
     });
-    
   }
 
   goToCreationProject() {
