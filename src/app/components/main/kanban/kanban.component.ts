@@ -133,44 +133,27 @@ console.log("DROP");
     this.columns[this.columns.length - 1].tasks.splice(i, 1);
   }
 
-  // drop(event: CdkDragDrop<Task[]>) {
-  //   //console.log(event.container.data[]);
-  //   if (event.previousContainer === event.container) {
-  //     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-  //   } else {
-  //     transferArrayItem(
-  //       event.previousContainer.data,
-  //       event.container.data,
-  //       event.previousIndex,
-  //       event.currentIndex
-  //     );
-  //   }
-  // }
-
-  drop(event: CdkDragDrop<Task[]>) {
+  drop(event: CdkDragDrop<Task[]>, column: {state: State, tasks: Task[]}) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
     } else {
-      //TODO: State change after task drop
-      // const droppedTask: Task = event.previousContainer.data[event.previousIndex];
-      // //const droppedState = event.container.data[event.currentIndex].state;
-      // console.log(event.currentIndex);
-      // //droppedTask.state = this.columns[event.currentIndex].state;
-      
-      // this.taskService.updateTaskState(droppedTask.id, droppedTask.state, droppedTask).subscribe(res => {
-        
-      // });
-
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex
       );
+
+      this.taskService.updateTaskState(event.item.data.id, column.state).subscribe({
+        complete: () => {}
+      });
     }
   }
   
-
   initializeColumns() {
     const states = Object.values(State);
     this.columns = states.map(state => ({ state: state, tasks: [] }));

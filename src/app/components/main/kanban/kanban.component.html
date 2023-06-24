@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    
+
     <div style="background: #303030; width: 100%;" class="col-md-3">
         <div>
           <mat-card class="mt-3">
@@ -52,8 +52,8 @@
             <div class="col-md-4" *ngFor="let column of columns">
               <div class="example-container">
                 <h2 class="head-title">{{ column.state }} <span *ngIf="column.tasks.length > 0"> : {{ column.tasks.length }}</span></h2>
-                <div cdkDropList [cdkDropListData]="column.tasks" class="example-list" (cdkDropListDropped)="drop($event)">
-                  <div class="example-box" *ngFor="let item of column.tasks; let i = index" cdkDrag (click)="goTotask(item.id)" style="margin-bottom: 5px; margin-top: 5px;">
+                <div cdkDropList [cdkDropListData]="column.tasks" class="example-list" (cdkDropListDropped)="drop($event, column)">
+                  <div class="example-box" cdkDrag [cdkDragData]="item" *ngFor="let item of column.tasks; let i = index" (click)="goTotask(item.id)" style="margin-bottom: 5px; margin-top: 5px;">
                     {{ item.title }}
                   </div>
                 </div>
@@ -64,7 +64,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- <mat-card class="example-card col-md-3">
     <mat-card-header>
       <mat-card-title>Title</mat-card-title>

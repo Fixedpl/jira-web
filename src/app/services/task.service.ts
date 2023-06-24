@@ -11,15 +11,15 @@ export class TaskService {
 
 
   BASE_PATH: string = 'api/v1/task/';
-  
+
   constructor(private http: HttpClient) { }
 
   getTaskById(taskId: number) : Observable<Task> {
     return this.http.get<Task>(this.BASE_PATH + taskId)
   }
 
-  updateTaskState(droppedTaskId: number, droppedState: State, task: Task): Observable<void> {
-    return this.http.put<void>(this.BASE_PATH + '/editState/' + droppedTaskId + '/' + droppedState, task);
+  updateTaskState(droppedTaskId: number, droppedState: State): Observable<void> {
+    return this.http.get<void>(this.BASE_PATH + '/editState/' + droppedTaskId + '/' + droppedState);
   }
 
   getTasksBySprintId(sprintId: number): Observable<Task[]> {

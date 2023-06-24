@@ -47,7 +47,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 import { KanbanComponent } from './components/main/kanban/kanban.component';
-import { KanbanModule } from '@syncfusion/ej2-angular-kanban'
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
@@ -92,7 +91,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
         ReactiveFormsModule,
         MatSelectModule,
         CommonModule,
-        KanbanModule,
         DragDropModule
     ],
   providers: [
